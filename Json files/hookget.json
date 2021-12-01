@@ -1,0 +1,605 @@
+    {
+    "hookinfofrommodel": [
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getDeviceId",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getSubscriberId",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getLine1Number",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getNetworkOperator",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getNetworkOperatorName",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getSimOperatorName",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.net.wifi.WifiInfo", 
+            "method": "getMacAddress",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getSimCountryIso",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getSimSerialNumber",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getNetworkCountryIso",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "getDeviceSoftwareVersion",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.os.Debug", 
+            "method": "isDebuggerConnected",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.SharedPreferencesImpl$EditorImpl", 
+            "method": "putString",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.SharedPreferencesImpl$EditorImpl", 
+            "method": "putBoolean",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.SharedPreferencesImpl$EditorImpl", 
+            "method": "putInt",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.SharedPreferencesImpl$EditorImpl", 
+            "method": "putLong",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.SharedPreferencesImpl$EditorImpl", 
+            "method": "putFloat",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.content.ContentValues", 
+            "method": "put",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "java.net.URL", 
+            "method": "openConnection",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "org.apache.http.impl.client.AbstractHttpClient", 
+            "method": "execute",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.ContextImpl", 
+            "method": "registerReceiver",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.ActivityThread", 
+            "method": "handleReceiver",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.Activity", 
+            "method": "startActivity",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "dalvik.system.BaseDexClassLoader", 
+            "method": "findResource",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "dalvik.system.BaseDexClassLoader", 
+            "method": "findLibrary",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "dalvik.system.DexFile", 
+            "method": "loadDex",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "dalvik.system.DexClassLoader", 
+            "method": "empty",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "dalvik.system.DexClassLoader",
+            "method": "load",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "dalvik.system.BaseDexClassLoader", 
+            "method": "findResources",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "dalvik.system.DexFile", 
+            "method": "loadClass",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "dalvik.system.DexFile", 
+            "method": "empty",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "dalvik.system.PathClassLoader", 
+            "method": "empty",
+			"SittingValues": "empty"
+        },
+        
+        {
+            "class_name": "javax.crypto.spec.SecretKeySpec", 
+            "method": "empty",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "javax.crypto.Cipher", 
+            "method": "doFinal",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "javax.crypto.Mac", 
+            "method": "doFinal",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.ApplicationPackageManager", 
+            "method": "setComponentEnabledSetting",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.NotificationManager", 
+            "method": "notify",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.util.Base64", 
+            "method": "decode",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.TelephonyManager", 
+            "method": "listen",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.util.Base64", 
+            "method": "encode",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.util.Base64", 
+            "method": "encodeToString",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.net.ConnectivityManager", 
+            "method": "setMobileDataEnabled",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.content.BroadcastReceiver", 
+            "method": "abortBroadcast",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.SmsManager", 
+            "method": "sendTextMessage",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.telephony.SmsManager", 
+            "method": "sendMultipartTextMessage",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "java.lang.Runtime", 
+            "method": "exec",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "java.lang.ProcessBuilder", 
+            "method": "start",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "java.io.FileOutputStream", 
+            "method": "write",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "java.io.FileInputStream", 
+            "method": "read",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.ActivityManager", 
+            "method": "killBackgroundProcesses",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.os.Process", 
+            "method": "killProcess",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.content.ContentResolver", 
+            "method": "query",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.content.ContentResolver", 
+            "method": "registerContentObserver",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.content.ContentResolver", 
+            "method": "insert",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.accounts.AccountManager", 
+            "method": "getAccountsByType",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.accounts.AccountManager", 
+            "method": "getAccounts",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.location.Location", 
+            "method": "getLatitude",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.location.Location", 
+            "method": "getLongitude",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.content.ContentResolver", 
+            "method": "delete",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.media.AudioRecord", 
+            "method": "startRecording",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.media.MediaRecorder", 
+            "method": "start",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.os.SystemProperties", 
+            "method": "get",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "android.app.ApplicationPackageManager", 
+            "method": "getInstalledPackages",
+			"SittingValues": "empty"
+        }, 
+        {
+            "class_name": "libcore.io.IoBridge", 
+            "method": "open",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "libcore.io.IoBridge",
+            "method": "close",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "dalvik.system.DexFile", 
+            "method": "openDexFile",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "java.lang.Runtime", 
+            "method": "load",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.os.Process", 
+            "method": "start",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.content.ContextWrapper", 
+            "method": "startActivities",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.content.ContextWrapper", 
+            "method": "startService",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.content.ContextWrapper", 
+            "method": "startActivity",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.content.ContextWrapper", 
+            "method": "sendBroadcast",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "java.net.ProxySelectorImpl", 
+            "method": "select",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "org.apache.http.impl.client.DefaultHttpClient", 
+            "method": "switch_proxy",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.webkit.WebView", 
+            "method": "addJavascriptInterface",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.webkit.WebView", 
+            "method": "setWebChromeClient",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.webkit.WebView", 
+            "method": "setWebViewClient",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.content.ContextWrapper", 
+            "method": "openFileOutput",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.AlarmManager", 
+            "method": "setAlarmClock",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.AlarmManager", 
+            "method": "set",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "java.io.File",
+            "method": "exists",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.Activity",
+            "method": "onCreate",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.Service",
+            "method": "onCreate",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.Activity",
+            "method": "onDestroy",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.Service",
+            "method": "onDestroy",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "java.lang.reflect.Method", 
+            "method": "invoke",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.os.PowerManager",
+            "method": "newWakeLock",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.view.WindowManager",
+            "method": "addView",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.provider.Settings.Secure",
+            "method": "getString",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.content.res.AssetManager",
+            "method": "open",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "javax.crypto.Cipher",
+            "method": "update",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "net.sqlcipher.database.SQLiteDatabase",
+            "method": "openDatabase",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.database.sqlite.SQLiteDatabase",
+            "method": "insert",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.database.sqlite.SQLiteDatabase",
+            "method": "query",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.database.sqlite.SQLiteDatabase",
+            "method": "create",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "java.io.PrintStream",
+            "method": "println",
+			"SittingValues": "empty"
+        },  
+        {
+            "class_name": "android.webkit.WebView",
+            "method": "loadUrl",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.ContextImpl",
+            "method": "getSystemService",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "android.app.usage.UsageStatsManager",
+            "method": "queryUsageStats",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "java.util.concurrent.ScheduledExecutorService",
+            "method": "scheduleAtFixedRate",
+			"SittingValues": "empty"
+        },
+        {
+            "class_name": "java.lang.Thread",
+            "method": "sleep",
+			"SittingValues": "empty"
+        },       
+		{
+            "class_name": "java.util.concurrent.ExecutorService",
+            "method": "invokeAll",
+			"SittingValues": "empty"
+        },{
+			"class_name": "android.provider.Settings.Secure",
+			"method": "getInt",
+			"SittingValues": "empty"
+		
+		},{
+			"class_name": "java.util.Calendar",
+			"method": "getTime",
+			"SittingValues": "empty"
+		
+		},{
+			"class_name": "android.net.wifi.WifiInfo",
+			"method": "getIpAddress",
+			"SittingValues": "empty"
+		
+		},{
+		
+			"class_name": "java.io.File",
+			"method": "empty",
+			"SittingValues": "empty"
+		},{
+		
+			"class_name": "android.os.Handler",
+			"method": "postDelayed",
+			"SittingValues": "empty"
+		},{
+		
+			"class_name": "android.os.SystemClock",
+			"method": "uptimeMillis",
+			"SittingValues": "empty"
+		},{
+			"class_name": "android.telephony.SmsMessage",
+			"method":"getMessageBody",
+			"SittingValues": "empty"
+		},{
+			"class_name": "java.io.FileInputStream",
+			"method": "empty",
+			"SittingValues": "empty"
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "MANUFACTURER"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "SERIAL"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "BOARD"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "HARDWARE"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "MODEL"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "PRODUCT"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "DEVICE"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "BRAND"
+		
+		},{
+			"class_name": "android.os.Build",
+			"method": "empty",
+			"SittingValues": "FINGERPRINT"
+		
+		},{
+			"class_name": "android.hardware.SensorEvent",
+			"method": "empty",
+			"SittingValues": "values"
+		
+		}    
+		
+    ], 
+    "finish": false
+}

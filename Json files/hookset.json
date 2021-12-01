@@ -1,0 +1,150 @@
+	{ 
+ 		"hookinfofrommodel": [
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getDeviceId",
+			"SittingValues": "351451208401216"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getSubscriberId",
+			"SittingValues": "425023456789015"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getSimSerialNumber",
+			"SittingValues": "899630400820674151600"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getLine1Number",
+			"SittingValues": "9107491674"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getNetworkOperatorName",
+			"SittingValues": "Cellcom"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getDeviceSoftwareVersion",
+			"SittingValues": "01"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getSimOperatorName",
+			"SittingValues": "Cellcom"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getSimCountryIso",
+			"SittingValues": "ir"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getNetworkCountryIso",
+			"SittingValues": "ir"
+			},
+			{
+			"class_name": "android.telephony.TelephonyManager",
+			"method": "getNetworkOperator",
+			"SittingValues": "Cellcom"
+			},
+			{
+			"class_name": "android.location.Location",
+			"method": "getLastKnownLocation",
+			"SittingValues": "1100#45423"
+			},
+			{
+			"class_name": "android.net.wifi.WifiInfo",
+			"method": "getMacAddress",
+			"SittingValues": "00:26:37:17:3C:71"
+			},
+			{
+			"class_name": "android.app.ActivityManager",
+			"method": "isUserAMonkey",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "android.os.Process",
+			"method": "start",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "java.lang.reflect.Method",
+			"method": "invoke",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "android.app.Application",
+			"method": "onCreate",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "android.os.Build",
+			"method": "getString",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "java.lang.Class",
+			"method": "forName",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "android.os.SystemProperties",
+			"method": "get",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "java.io.File",
+			"method": "exists",
+			"SittingValues": "true1"
+			},
+			{
+			"class_name": "android.provider.Settings.Secure",
+			"method": "getInt",
+			"SittingValues": "5"
+			},
+			{
+			"class_name": "java.util.Date",
+			"method": "getHours",
+			"SittingValues": "3"
+			},
+			{
+			"class_name": "android.net.wifi.WifiManager",
+			"method": "getIpAddress",
+			"SittingValues": "10.10.1.1"
+			},
+			{
+			"class_name": "libcore.io.IoBridge",
+			"method": "open",
+			"SittingValues": "empty"
+			},
+			{
+			"class_name": "java.io.File",
+			"method": "empty",
+			"SittingValues": "/vendor/li"
+			},
+			{
+			"class_name": "android.os.Handler",
+			"method": "postDelayed",
+			"SittingValues": "1"
+			},
+			{
+			"class_name": "android.os.SystemClock",
+			"method": "uptimeMillis",
+			"SittingValues": "15000000"
+			},
+			{
+			"class_name": "java.lang.Thread",
+			"method": "sleep",
+			"SittingValues": "0"
+			},
+			{
+			"class_name": "java.io.FileInputStream",
+			"method": "empty",
+			"SittingValues": "/proc/net/tc"
+			}
+		], 
+		"finish": false 
+	}
