@@ -1,0 +1,91 @@
+[comment encoding = UTF-8 /]
+[module UI('http://www.example.org/EventProduction')]
+
+
+[template public generateUI(anUI_Events : UIEvents)]
+
+[file ('UI.txt', false, 'UTF-8')]
+[for (a :  Component2Run|component2run )]
+[for (t : Touch | touch)]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+touch@[t.NumberOftouches/]_[t.StartX/],[t.StartY/]
+[/for]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+[for (t : Type | type)]
+[if (a.ActivityName.contains(t.ContainedActivity.first(5)))]
+Type@adb shell input text("[t.EventsName/]")
+adb shell input keyevent KEYCODE_DPAD_DOWN
+[/if]
+[/for]
+[for (p : Press | press)]
+	[if (a.ActivityName.contains(p.ContainedActivity.first(5)))]
+[if (p.Type = 'Checks')]
+Ckx@adb shell input keyevent [p.KeyName/]
+adb shell input keyevent KEYCODE_DPAD_DOWN
+[/if]
+[/if]
+[/for]
+[for (p : Press | press) ] 
+	[if (a.ActivityName.contains(p.ContainedActivity.first(5)))]
+[if (p.Type='Key')]
+btn@adb shell input keyevent [p.KeyName/]
+adb shell input keyevent KEYCODE_DPAD_DOWN
+[/if]
+[/if]
+[/for]
+[for (t : Touch | touch)]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+touch@[t.NumberOftouches/]_[t.StartX/],[t.StartY/]
+[/for]
+[for (d : Drag | drag)]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+drag@[d.NumberOfDrags/]_[d.StartX/],[d.StartY/]![d.EndX/]#[d.EndY/]
+[/for]
+[for (M : Press | press)]
+[if (a.ActivityName.contains(M.ContainedActivity.first(5)))]
+[if (M.Type='Menu')]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+adb shell input swipe 700 700 700 700 2000
+adb shell input keyevent[M.KeyName/]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+adb shell input swipe 700 700 700 700 2000
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent[M.KeyName/]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+adb shell input swipe 700 700 700 700 2000
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent[M.KeyName/]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+adb shell input swipe 700 700 700 700 2000
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent[M.KeyName/]	
+[/if]
+[/if]
+[/for]
+adb shell am start -n [anUI_Events.PakageName/]/[a.ActivityName/]
+adb shell input keyevent KEYCODE_MENU
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_MENU
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_MENU
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_MENU
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+[/for]
+adb shell input keyevent KEYCODE_HOME
+adb shell input keyevent KEYCODE_SYM
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_VOLUME_UP
+adb shell input keyevent KEYCODE_VOLUME_DOWN
+[/file]
+[/template]

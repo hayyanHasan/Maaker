@@ -1,0 +1,530 @@
+-- @path EventsGen=/android.events.DG/metamodels/EventProduction.ecore
+-- @path EventsDesc=/android.events.DG/metamodels/EventSource.ecore
+
+module androidATLGenerate;
+create OUT : EventsGen from IN : EventsDesc;
+
+
+helper def:Email_Words :Sequence(OclAny)=
+	Sequence { 'email', 'TYPE_TEXT_VARIATION_EMAIL_ADDRESS','TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS'
+		
+};
+helper def:Address_Words :Sequence(OclAny)=
+	Sequence { 'address', 'street','TYPE_TEXT_VARIATION_POSTAL_ADDRESS'
+};
+helper def:NAME_WORDS :Sequence(OclAny)=
+	Sequence { 'name', 'first', 'last', 'middle', 'initial','TYPE_TEXT_VARIATION_PERSON_NAME'
+};
+-- Phone words helper 
+helper def:PHONE_WORDS :Sequence(OclAny)=
+	Sequence { 'phone', 'number', 'cell', 'home', 'fax',
+	'work', 'office','TYPE_CLASS_PHONE'
+};
+helper def:CITY_WORDS :Sequence(OclAny)=
+	Sequence { 'city', 'location'
+};
+helper def:STATE_WORDS :Sequence(OclAny)=
+	Sequence { 'state'
+};
+helper def:ZIPCODE_WORDS :Sequence(OclAny)=
+	Sequence { 'zip', 'code'
+};
+helper def:YEAR_WORDS :Sequence(OclAny)=
+	Sequence { 'year'
+};
+helper def:DAY_WORDS :Sequence(OclAny)=
+	Sequence { 'day', 'date'
+};
+helper def:MONTH_WORDS :Sequence(OclAny)=
+	Sequence { 'month'
+};
+helper def:AGE_WORDS :Sequence(OclAny)=
+	Sequence { 'age', 'year', 'birth'
+};
+helper def:PASSWORD_WORDS :Sequence(OclAny)=
+	Sequence { 'password','TYPE_NUMBER_VARIATION_PASSWORD','TYPE_TEXT_VARIATION_PASSWORD',
+	'TYPE_TEXT_VARIATION_VISIBLE_PASSWORD','TYPE_TEXT_VARIATION_WEB_PASSWORD'
+	
+};
+helper def:USERNAME_WORDS :Sequence(OclAny)=
+	Sequence { 'username', 'userid', 'user','TYPE_CLASS_TEXT'
+};
+
+
+helper def:BIRTH_WORDS :Sequence(OclAny)=
+	Sequence { 'birthday', 'birth', 'born','TYPE_CLASS_DATETIME','TYPE_DATETIME_VARIATION_DATE','TYPE_DATETIME_VARIATION_NORMAL'
+	,'TYPE_DATETIME_VARIATION_TIME'
+
+};
+helper def:Numbers:Sequence (OclAny)=
+	Sequence { 'value','Value'
+};
+
+helper def:PhoneState_Permission :Sequence(OclAny)=
+	Sequence { 'android.permission.ACCESS_NETWORK_STATE', 'android.permission.CHANGE_NETWORK_STATE',
+	'android.permission.ACCESS_COARSE_UPDATES', 'android.permission.READ_PHONE_STATE',
+	'android.permission.BATTERY_STATS', 'android.permission.INTERNET','android.permission.MODIFY_PHONE_STATE','android.permission.VIBRATE'
+	
+
+};
+helper def:Calls_Permission :Sequence(OclAny)=
+	Sequence { 'android.permission.ANSWER_PHONE_CALLS', 'android.permission.CALL_PHONE',
+	'android.permission.CALL_PRIVILEGED','android.permission.PROCESS_OUTGOING_CALLS',
+	'android.permission.READ_CALL_LOG','android.permission.READ_LOGS'
+
+};
+helper def:Contacts_Permission :Sequence(OclAny)=
+	Sequence { 'android.permission.READ_CONTACTS', 'android.permission.READ_PHONE_NUMBERS'
+};
+
+helper def:Messages_Permission :Sequence(OclAny)=
+	Sequence { 'android.permission.READ_SMS', 'android.permission.RECEIVE_SMS',
+	'android.permission.SEND_SMS','android.permission.RECEIVE_MMS'
+
+};
+helper def:Browser_Permission :Sequence(OclAny)=
+	Sequence { 'com.android.browser.permission.READ_HISTORY_BOOKMARKS'
+
+};
+helper def:Calender_Permission :Sequence(OclAny)=
+	Sequence { 'android.permission.READ_CALENDAR'
+
+};
+helper def:File_Permission :Sequence(OclAny)=
+	Sequence { 'android.permission.MANAGE_DOCUMENTS',
+	'android.permission.READ_EXTERNAL_STORAGE','android.permission.MOUNT_UNMOUNT_FILESYSTEMS'
+};
+helper def:Account_Permission :Sequence(OclAny)=
+	Sequence { 'android.permission.GET_ACCOUNTS',
+	'android.permission.GET_ACCOUNTS_PRIVILEGED','android.permission.MANAGE_ACCOUNTS'
+};
+--------------------values Helper------------------
+helper def:location_words:Sequence(OclAny)=
+	Sequence { 'android.permission.ACCESS_COARSE_LOCATION','android.permission.ACCESS_FINE_LOCATION'};
+-------------------------rules-----------------------
+rule createEvents {
+	
+	from
+		s:EventsDesc!SysModel
+	to
+		UI:EventsGen!UIEvents(
+			
+		PakageName <- s.PackageName,
+		component2run <- s.activities
+		),
+	Sy: EventsGen!SystemEventsAndServices(
+	PakageName <- s.PackageName,
+	service_based <- s.service,
+	reciver_based <- s.reciver,
+	permission_based <- s.usespermission
+	
+	),
+	valu: EventsGen!ValuesProviding(),
+	evasions :EventsGen!EvasionTechniques()
+		
+}
+rule createcomponents {
+	from 
+		s:EventsDesc!Activity
+	to 
+		t:EventsGen!Component2Run(
+		ActivityName <- s.ActivityName	,
+		
+		--generatedevents <- s.views -> select (c|c.oclIsTypeOf(thisModule.name_of_views.includes()))
+		type  <- s.views -> select(c | c.oclIsTypeOf(EventsDesc!InputText)).first(),
+		press   <- s.views -> select(c | c.oclIsTypeOf(EventsDesc!InputButton)),
+		press  <- s.views -> select(c | c.oclIsTypeOf(EventsDesc!InputChecks)),
+		press  <- s.views -> select(c | c.oclIsTypeOf(EventsDesc!Menu))
+		--touch  <- s.views -> select(c | c.oclIsTypeOf(EventsDesc!TextView)).first(),
+		--drag <- s.views -> select(c | c.oclIsTypeOf(EventsDesc!ImageView)).first()
+		)	
+	}
+rule CreateTextBasedEvents {
+	
+	
+	from
+		s:EventsDesc!InputText
+	to 
+		t:EventsGen!Type (
+			
+		EventsName  <- if s.name.oclIsUndefined() then 
+								OclUndefined 
+						else 
+		if thisModule.Email_Words.includes(s.InputType) or thisModule.Email_Words.includes(s.ID) or  thisModule.Email_Words.includes(s.Hint) or  thisModule.Email_Words.includes(s.Text) or 
+		s.name.startsWith('email') or s.name.endsWith('email')  then 
+					'mdse@gmail.com'
+						else if thisModule.Address_Words.includes(s.InputType) or thisModule.Address_Words.includes(s.Text) or thisModule.Address_Words.includes(s.ID) or thisModule.Address_Words.includes(s.Hint)  
+						or s.name.startsWith('address') or s.name.endsWith('address') or s.name.startsWith('street') or s.name.endsWith('street') then 
+							'360 isfahan iran'
+							else if thisModule.NAME_WORDS.includes(s.InputType) or thisModule.NAME_WORDS.includes(s.Text) or thisModule.NAME_WORDS.includes(s.ID) or thisModule.NAME_WORDS.includes(s.Hint)  
+						or s.name.startsWith('name') or s.name.endsWith('name') or s.name.startsWith('first') or s.name.endsWith('first') or s.name.startsWith('last') or s.name.endsWith('last') or s.name.startsWith('middle') or s.name.endsWith('middle')
+							or s.name.startsWith('initial') or s.name.endsWith('initial') then 
+								'mdse'
+								else if thisModule.PHONE_WORDS.includes(s.InputType) or thisModule.PHONE_WORDS.includes(s.Text) or thisModule.PHONE_WORDS.includes(s.ID) or thisModule.PHONE_WORDS.includes(s.Hint) 
+								or s.name.startsWith('phone') or s.name.endsWith('phone') or s.name.startsWith('number') or s.name.endsWith('number') or s.name.startsWith('cell') or s.name.endsWith('cell') or s.name.startsWith('home') or s.name.endsWith('home')
+							or s.name.startsWith('fax') or s.name.endsWith('fax') or s.name.startsWith('work') or s.name.endsWith('work') or s.name.startsWith('office') or s.name.endsWith('office') then 
+									'6547891236'
+									else if thisModule.CITY_WORDS.includes(s.InputType) or thisModule.CITY_WORDS.includes(s.Text) or thisModule.CITY_WORDS.includes(s.ID) or thisModule.CITY_WORDS.includes(s.Hint) 
+									or s.name.startsWith('city') or s.name.endsWith('city') or s.name.startsWith('location') or s.name.endsWith('location')then 
+										'Isfahan'
+										else if thisModule.STATE_WORDS.includes(s.InputType) or thisModule.STATE_WORDS.includes(s.Text) or thisModule.STATE_WORDS.includes(s.ID) or thisModule.STATE_WORDS.includes(s.Hint)
+										or s.name.startsWith('state') or s.name.endsWith('state')then 
+											'Isfahan'
+											else if thisModule.ZIPCODE_WORDS.includes(s.InputType) or thisModule.ZIPCODE_WORDS.includes(s.Text) or thisModule.ZIPCODE_WORDS.includes(s.ID) or thisModule.ZIPCODE_WORDS.includes(s.Hint) 
+											or s.name.startsWith('zip') or s.name.endsWith('zip') or s.name.startsWith('code') or s.name.endsWith('code')then 
+												'08974'
+												else if thisModule.YEAR_WORDS.includes(s.InputType) or thisModule.YEAR_WORDS.includes(s.Text) or thisModule.YEAR_WORDS.includes(s.ID) or thisModule.YEAR_WORDS.includes(s.Hint)
+												or s.name.startsWith('year') or s.name.endsWith('year') then 
+													'1988'
+													else if thisModule.DAY_WORDS.includes(s.InputType) or thisModule.DAY_WORDS.includes(s.Text) or thisModule.DAY_WORDS.includes(s.ID) or thisModule.DAY_WORDS.includes(s.Hint) 
+													or s.name.startsWith('day') or s.name.endsWith('day')or s.name.startsWith('date') or s.name.endsWith('date')then 
+														'19'
+														else if thisModule.MONTH_WORDS.includes(s.InputType) or thisModule.MONTH_WORDS.includes(s.Text) or thisModule.MONTH_WORDS.includes(s.ID) or thisModule.MONTH_WORDS.includes(s.Hint) 
+														or s.name.startsWith('month') or s.name.endsWith('month')then 
+															'9'
+															else if thisModule.AGE_WORDS.includes(s.InputType) or thisModule.AGE_WORDS.includes(s.Text) or thisModule.AGE_WORDS.includes(s.ID) or thisModule.AGE_WORDS.includes(s.Hint)  
+															or s.name.startsWith('age') or s.name.endsWith('age')or s.name.startsWith('year') or s.name.endsWith('year')or s.name.startsWith('birth') or s.name.endsWith('birth')then 
+																'31'
+																else if thisModule.PASSWORD_WORDS.includes(s.InputType) or thisModule.PASSWORD_WORDS.includes(s.Text)  or thisModule.PASSWORD_WORDS.includes(s.ID) or thisModule.PASSWORD_WORDS.includes(s.Hint)
+																or s.name.startsWith('password') or s.name.endsWith('password')or s.name.startsWith('pass') or s.name.endsWith('pass')then 
+																	'Hh1234%$#'
+																		else if thisModule.BIRTH_WORDS.includes(s.InputType) or thisModule.BIRTH_WORDS.includes(s.Text) or thisModule.BIRTH_WORDS.includes(s.ID) or thisModule.BIRTH_WORDS.includes(s.Hint)
+																		or s.name.endsWith('birthday')or s.name.startsWith('birthday')or s.name.endsWith('birth')or s.name.startsWith('birth')or s.name.endsWith('born')or s.name.startsWith('born')then 
+																		'19/9/1988'
+																			else if thisModule.USERNAME_WORDS.includes(s.InputType) or thisModule.USERNAME_WORDS.includes(s.Text) or thisModule.USERNAME_WORDS.includes(s.ID) or thisModule.USERNAME_WORDS.includes(s.Hint)
+																			or s.name.endsWith('username')or s.name.startsWith('username')or s.name.endsWith('userid')or s.name.startsWith('userid')or s.name.endsWith('user')or s.name.startsWith('user')then 
+																				'19/9/1988'
+																				else if thisModule.Numbers.includes(s.InputType) or thisModule.Numbers.includes(s.Text) or thisModule.Numbers.includes(s.ID) or thisModule.Numbers.includes(s.Hint)
+																				or s.name.endsWith('value')or s.name.startsWith('value')or s.name.endsWith('Value')or s.name.startsWith('Value') then 
+																				'1234'
+																				else
+																			'modelDrivenSoftwareEnginnering'
+																	   		  endif
+																			 endif
+																		 endif
+																	endif
+																endif
+															endif
+														endif
+													endif
+												endif
+											endif
+										endif	
+									endif
+								endif	
+							endif
+						endif
+					endif,
+			ContainedActivity  <- s.ContainedActivity
+		
+		)
+		
+	
+	
+}
+ 
+rule createchecks  {
+	
+	from 
+		s:EventsDesc!InputChecks
+	to 
+		t:EventsGen!Press (
+	
+	KeyName <- 'KEYCODE_ENTER',
+	ContainedActivity  <- s.ContainedActivity,
+	Type <- 'Checks'
+		
+		)
+		
+		
+}
+
+
+rule createclicks   {
+	
+	from 
+		s:EventsDesc!InputButton
+	to 
+		t:EventsGen!Press (
+		
+		KeyName <- 'KEYCODE_ENTER',
+		ContainedActivity  <- s.ContainedActivity,
+		Type <- 'Key'
+		)
+}
+
+--rule createDrag   {
+--from 
+--	s: EventsDesc!ImageView
+--to
+--drag :EventsGen!Drag (
+--		NumberOfDrags  <- 10,
+--	StartX  <- 20,
+--		EndX  <- 20,
+--	StartY  <- 50,
+--		EndY  <- 50
+--		)
+	
+--}
+	
+--rule createTouch  {
+--from 
+--	s: EventsDesc!TextView
+--to
+--touch :EventsGen!Touch (
+--		NumberOftouches   <- 10,
+--		StartX  <- 20,
+--		StartY  <- 20
+--		)
+--}
+
+rule createMenues  {
+	from 
+		s: EventsDesc!Menu
+	to 
+		t:EventsGen!Press (
+		
+		KeyName <- 'KEYCODE_ENTER',
+		ContainedActivity  <- s.ContainedActivity,
+		Type <- 'Menu'
+		)
+	
+}
+
+----- system events 
+
+
+rule runService {
+	from 
+		s:EventsDesc!Service
+	to
+		t:EventsGen!ServiceBased(
+		EventsName <- 'adb shell am startservice',
+		Name <- s.Name		
+		)
+}
+
+rule creatReciver {
+	
+	from 
+		s: EventsDesc!BrodcastReciver
+	to 
+		t:EventsGen!ReciverBased (
+			
+		EventsName <- 'adb shell am broadcast -a',
+		intent_filter <- s.filters
+		
+		)
+}
+rule createFilter {
+	from 
+		s:EventsDesc!IntentFilter (not s.ReciverName.oclIsUndefined())
+	to
+		t:EventsGen!IntentFilter(
+			
+		Action <- s.action.first().Name , 
+		Category <-if not s.category.isEmpty() then
+						s.category.first().Name
+					
+					else
+						OclUndefined
+					
+					endif,
+		Data <- if  s.data.oclIsUndefined() then 
+					s.data.first().URI 
+				else
+					OclUndefined
+				endif
+		
+		)
+	
+	
+}
+
+
+
+
+rule createPermissionBased {
+	
+	from
+		s: EventsDesc!UsesPermission (not (thisModule.location_words.includes(s.Name)))
+	to
+		t:EventsGen!PermissionBased(
+		Type <-  if thisModule.PhoneState_Permission.includes(s.Name) then 
+						'Phone_State'
+							else if thisModule.Contacts_Permission.includes(s.Name) then 
+								'Contacts'	
+										else if thisModule.Messages_Permission.includes(s.Name) then 
+											'Messages'
+												else if thisModule.Browser_Permission.includes(s.Name) then 
+												'Broweser'
+													else if thisModule.Calender_Permission.includes(s.Name) then 
+														'Calender'
+															else if thisModule.File_Permission.includes(s.Name) then 
+																'Files'
+																	else if thisModule.Account_Permission.includes(s.Name) then 
+																		'Account'
+																		else if thisModule.Calls_Permission.includes(s.Name) then 
+																				'Calls'
+																				else if s.Name = 'android.permission.RECEIVE_BOOT_COMPLETED' then 
+																					'Boot'
+																				
+																	else 
+																		OclUndefined
+																	endif
+																endif
+															endif
+														endif
+													endif
+												endif
+											endif
+										
+									endif
+								endif
+		)
+	
+}
+------------------Values ----------------		
+
+rule MakeCallsAndSMSs{
+	
+	from
+		s:EventsDesc!SMSsAndCalls 
+	to 
+		Cal:EventsGen!ReceiveCalls (
+			
+		PhoneNumber <- if (not s.PhoneNumber.oclIsUndefined()) then
+										s.PhoneNumber.regexReplaceAll('"', '') + '1235674898'
+						else
+							OclUndefined
+								
+					    endif			
+		),
+		
+		SMSs:EventsGen!ReceiveSMSs(
+				PhoneNumber <- if (not s.PhoneNumber.oclIsUndefined()) then
+										s.PhoneNumber.regexReplaceAll('"', '') + '1235674898'
+						else
+							OclUndefined
+								
+					    endif,
+					Contents <-  if (not s.Content.oclIsUndefined()) then
+										s.Content.regexReplaceAll('"', '') 
+						else
+							OclUndefined
+								
+					    endif
+		)	
+}
+
+rule createFiles {
+	
+	from 
+		s:EventsDesc!Files
+	to 
+		t:EventsGen!AddFiles(
+		Filename <- if not s.FileName.oclIsUndefined() then 
+						s.FileName.regexReplaceAll('"', '')
+					else
+						OclUndefined
+					endif,
+		Contents <- if not s.Content.oclIsUndefined() then 
+						s.Content.regexReplaceAll('"', '')
+					else
+						OclUndefined
+					endif
+		
+		)
+}
+rule createLocation {
+	
+	from 
+		s:EventsDesc!UsesPermission (thisModule.location_words.includes(s.Name))
+	to
+		t:EventsGen!ChangeLocation(
+			
+		latitude <- '35',
+			longitude <- '103',
+			Altitude <-  '202'
+		
+		)
+}
+rule createLocation1 {
+	
+	from
+		s:EventsDesc!Location
+	to
+		t:EventsGen!ChangeLocation(
+			
+			latitude <- '35',
+			longitude <- '103',
+			Altitude <-  '202'
+		
+		
+		)
+	
+}
+---------------------evasions -------------------
+
+
+rule createEvasionMethodes {
+	
+	from 
+		s:EventsDesc!EvasionMethodes
+	to
+		t:EventsGen!EvasionMethodes(
+			
+		 GeneratedMethodes <-   s.MethodSource
+		),
+		t1: EventsGen!EvasionClass (
+			
+		GeneratedClass <- s.ClassName
+		
+		)
+}
+rule createEvasionFileds {
+	
+	from 
+		s:EventsDesc!EvasionFileds
+	to
+		t:EventsGen!EvasionFields(
+			
+		GeneratedFields <-  s.FieldSource
+		
+		
+		),
+		t1: EventsGen!EvasionClass (
+			
+		GeneratedClass <- s.ClassName
+		
+		)
+}
+
+rule createEvasionArguments {
+	
+	from 
+		s:EventsDesc!EvasionStrings
+	to
+		t:EventsGen!EvasionArguments(
+			
+		GeneratedValue  <-  'Values@'+ s.StringSource
+		
+		
+		)
+}
+
+--rule createEvasionArguments1 {
+	
+--	from 
+	--	s:EventsDesc!EvasionIntegers
+--	to
+--		t:EventsGen!EvasionArguments(
+			
+--			GeneratedValue <- 'Constant@'+ s.IntegerSource.toString()
+		
+		
+--		)
+--}	
+		
+
+

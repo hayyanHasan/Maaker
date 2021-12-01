@@ -1,0 +1,757 @@
+-- @nsURI java=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @path EventsDesc=/android.events.DG/metamodels/Events_Discovery.ecore
+
+module androidextractor;
+create OUT : EventsDesc from IN : XML, IN1 : java;
+
+
+-------------------XML Helpers----------
+helper context XML!Element def : getAttributes(element_name : String) :  Sequence(manifest!Element) =
+	self.children->select(c | c.name = element_name);
+
+helper context XML!Element def : getAttribute(element_name : String) : manifest!Element =
+	self.getAttributes(element_name)->first();
+helper def: str2bool:Map(OclAny,OclAny) = 
+	Map{('false',false),('true',true)};
+
+
+----------------Intents helpers--------
+
+helper context OclAny def : getContainerOfSingleVariableSAccess : java!MethodInvocation =
+	if self.oclIsTypeOf(java!MethodInvocation) then
+		self
+	   else
+			self.refImmediateComposite().getContainerOfSingleVariableSAccess
+endif;
+helper context java!SingleVariableAccess def: getSetActionMethod:java!MethodInvocation =
+ --self.getContainerOfSingleVariableSAccess.getSingleVariableAccessinArgument.escapedValue;
+  self.getContainerOfSingleVariableSAccess;
+helper context java!AbstractMethodInvocation def:getNameofStringLiteral : Sequence(java!StringLiteral) =
+	self.arguments->flatten()->select(c | c.oclIsTypeOf(java!StringLiteral));
+helper context java!AbstractMethodInvocation def:getNameofSingleVariableAccess : Sequence(java!SingleVariableAccess) =
+	self.arguments->flatten()->select(c | c.oclIsTypeOf(java!SingleVariableAccess));
+---------------- Dialog helpers ------------
+helper def:name_of_Dialog_methodes:Sequence(OclAny)=
+	Sequence { 'setContentView', 'setView','setNeutralButton', 'setPositiveButton',
+	'setNegativeButton', 'setItems', 'setMultiChoiceItems', 'setSingleChoiceItems'
+};
+
+helper context OclAny def : getNameofDialog : java!MethodInvocation =
+	
+	if not self.expression.oclIsTypeOf(java!MethodInvocation) then
+		if self.expression.oclIsTypeOf(java!UnresolvedItemAccess) then
+				self.expression.element.name
+		else if self.expression.oclIsTypeOf(java!FieldAccess) then
+					self.expression.field.variable.name
+		else
+				self.expression.variable.name
+				
+		endif
+		endif
+	else
+			self.expression.getNameofDialog
+endif;
+
+helper context OclAny def:getClassInstanceCreationOfDialog:Sequence(java!MethodInvocation)=
+	java!MethodInvocation.allInstances()->select(c | thisModule.name_of_Dialog_methodes.includes(c.method.name)  and not c.expression.oclIsUndefined());
+------------------intentFilters--------------------------
+helper context OclAny def:getAddActionMethod:Sequence(java!MethodInvocation)=
+	java!MethodInvocation.allInstances()->select(c | c.method.name = 'addAction');
+helper context OclAny def:getAddcategoryMethod:Sequence(java!MethodInvocation)=
+	java!MethodInvocation.allInstances()->select(c | c.method.name = 'addCategory');
+helper context OclAny def:getAddPAthMethod:Sequence(java!MethodInvocation)=
+	java!MethodInvocation.allInstances()->select(c | c.method.name = 'addDataPath');
+helper context OclAny def:getAddActionMethodad:Sequence(java!ClassInstanceCreation)=
+	java!ClassInstanceCreation.allInstances()->select(c |c.type.type.name = 'IntentFilter' );
+
+-------------layouts---------------
+helper context OclAny def:getClassInstanceCreationOfLayouts:Sequence(java!ClassInstanceCreation)=
+	java!ClassInstanceCreation.allInstances()->select(c | c.type.type.name.endsWith('Layout'));
+---------------Views ----------
+helper def:name_of_views:Sequence(OclAny)=
+	Sequence { 'Spinner', 'RadioButton', 'ToggleButton',
+	'EditText', 'TextView', 'ImageView', 'ImageButton',
+	'Button', 'CheckBox','Switch','AutoCompleteTextView','Menu'
+};
+helper def:name_of_input_button:Sequence(OclAny)=
+	Sequence {'ImageButton','Button'};
+
+helper def:name_of_input_text:Sequence(OclAny)=
+	Sequence { 
+	'EditText', 'AutoCompleteTextView'
+};
+helper def:name_of_checks_inputs:Sequence(OclAny)=
+	Sequence {'RadioButton', 'CheckBox','Switch','ToggleButton'
+};
+helper def:name_of_Menues:Sequence(OclAny)=
+	Sequence { 'Spinner', 'Menu' };
+helper context java!AbstractMethodInvocation def:getNameofNumberLiteral : Sequence(java!NumberLiteral) =
+	self.arguments->flatten()->select(c | c.oclIsTypeOf(java!NumberLiteral));
+
+helper context OclAny def:getClassInstanceCreationOfViews:Sequence(java!ClassInstanceCreation)=
+	java!ClassInstanceCreation.allInstances()->select(c |thisModule.name_of_views.includes(c.type.type.name))
+	;
+helper context OclAny def:getClassInstanceCreationOfViews2:Sequence(java!CastExpression)=
+	java!CastExpression.allInstances()->select(c |thisModule.name_of_views.includes(c.type.type.name))
+	;
+helper context OclAny def : getAssignment: java!Assignment =
+	if self.oclIsTypeOf(java!Assignment) then
+		self
+	   else
+			self.refImmediateComposite().getAssignment
+endif;
+
+
+
+helper context OclAny def : getActivity : java!ClassDeclaration =
+	
+	if not self.superClass.oclIsUndefined() then
+		if self.superClass.type.name = 'Activity' then
+				true
+		else
+			false
+			endif
+			else
+				false
+		endif;
+
+---------------------------listner---------------------------
+helper context OclAny def:getlistner:Sequence(java!SingleVariableAccess)=
+	java!SingleVariableAccess.allInstances()->select(c |thisModule.Type_of_listners.includes(c.variable.name));
+
+helper def:Type_of_listners:Sequence(OclAny)=
+	Sequence {'TYPE_ACCELEROMETER','TYPE_MAGNETIC_FIELD','TYPE_ORIENTATION',
+	'TYPE_PROXIMITY','TYPE_TEMPERATURE'};
+
+--------------------------------rules-----------------------------------------
+
+rule Root2SYSModel {
+	from
+	s: XML!Root (s.name = 'manifest')
+	to 
+	t: EventsDesc!SysModel (
+		
+		Package_Name  <- if s.getAttribute('package').oclIsUndefined() then
+		OclUndefined
+		
+		else
+			s.getAttribute('package').value
+			endif,
+			
+		VersionCode <- if s.getAttribute('android:versionCode').oclIsUndefined() then
+			OclUndefined
+		else
+			s.getAttribute('android:versionCode').value
+			endif,
+		VersionName <- if s.getAttribute('android:versionName').oclIsUndefined() then
+			OclUndefined
+		else
+			s.getAttribute('android:versionName').value
+			endif,
+		
+			
+	activities  <- s.children-> select(c | c.name = 'application').first().children ->select(c | c.name='activity') ,
+	service  <- s.children-> select(c | c.name = 'application').first().children ->select(c | c.name='service') ,
+	reciver  <- s.children-> select(c | c.name = 'application').first().children ->select(c | c.name='receiver') ,
+	 usespermission <-s.children ->select(c | c.name='uses-permission'),
+	listner <-thisModule.getlistner -> collect(c | thisModule.createlistner(c))
+	
+		
+			
+)
+}
+lazy rule createlistner {
+	
+	from
+		s: java!SingleVariableAccess
+	to
+		t: EventsDesc!Listner(
+			
+	Type <-s.variable.name
+		)
+	
+}
+rule Element2UsesPermission{ 
+	from
+	    s:XML!Element  (s.name='uses-permission')
+	to
+	    t:EventsDesc!UsesPermission(
+	    	name <- s.getAttribute('android:name').value
+	    )
+}
+rule elemnt2Activity{
+	
+	from
+	s: XML!Element (s.name = 'activity')
+	to 
+	t: EventsDesc!Activity (
+		Activity_Name  <- if s.getAttribute('android:name').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:name').value
+			endif,
+			
+		Label <- if s.getAttribute('android:label').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:label').value
+			endif,
+			
+		
+		Lunch_Mode <- if s.getAttribute('android:launchMode').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:launchMode').value
+			endif,
+		enabled <- if s.getAttribute('android:enabled').oclIsUndefined() then
+			false
+		else 		
+			thisModule.str2bool.get(s.getAttribute('android:enabled').value)
+	endif,
+	
+		filters <- s.children ->select(c | c.name='intent-filter'),
+		dialog <-thisModule.getClassInstanceCreationOfDialog -> collect(c | thisModule.CreateDialog(c)),
+		 views <- thisModule.getClassInstanceCreationOfViews2 -> collect(c | thisModule.XMLView(c)),
+		  
+		views <- thisModule.getClassInstanceCreationOfViews -> collect(c | thisModule.CreateView(c))
+
+		)	
+}
+
+rule elemnt2Service{
+	
+	from
+	s: XML!Element (s.name = 'service')
+	to 
+	t: EventsDesc!Service (
+		Name <- if s.getAttribute('android:name').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:name').value
+			endif,
+			
+		Label <- if s.getAttribute('android:label').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:label').value
+			endif,
+			
+		Permission <- if s.getAttribute('android:permission').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:permission').value
+			endif,
+		
+	enabled <- if s.getAttribute('android:enabled').oclIsUndefined() then
+	false
+		else 
+ 	thisModule.str2bool.get(s.getAttribute('android:enabled').value)
+		endif,
+		filters <- s.children ->select(c | c.name='intent-filter')
+		)
+	
+	
+}
+rule elemnt2BroadcastReciver{
+	
+	from
+	s: XML!Element (s.name = 'receiver')
+	to 
+	t: EventsDesc!Brodcast_Reciver (
+		Name <- if s.getAttribute('android:name').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:name').value
+			endif,
+			
+		Label <- if s.getAttribute('android:label').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:label').value
+			endif,
+			
+		Permission <- if s.getAttribute('android:permission').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:permission').value
+			endif,
+		
+	enabled <- if s.getAttribute('android:enabled').oclIsUndefined() then
+	false
+		else 
+ 	thisModule.str2bool.get(s.getAttribute('android:enabled').value)
+		endif,
+		filters <- s.children ->select(c | c.name='intent-filter')
+		)
+	
+	
+}
+ rule CreatReciver {
+	
+	from
+	    s:java!MethodInvocation(s.method.name = 'registerReceiver')
+		
+		
+	to
+	    t:EventsDesc!Brodcast_Reciver(
+	    	
+	    	Name <- if s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!FieldAccess)).notEmpty() then 
+			s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!FieldAccess)) -> first().field.variable.name else 
+				
+			s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!UnresolvedItemAccess)) -> first().element.name
+			endif,
+			
+	    	
+			filters <- thisModule.getAddActionMethodad -> collect(c | thisModule.CreateIntentFilter(c))
+	    	)
+}
+ 
+ rule Element2intentFilter {
+	from
+		s:XML!Element (s.name='intent-filter')
+
+	to
+		 t:EventsDesc!Intent_Filter
+(
+	name <- s.name, 
+	action <- s.children ->select(c | c.name='action'),
+	 category <- s.children ->select(c | c.name='category'),
+	 data <- s.children->select(c | c.name='data'),
+	reciver_name <- if s.parent.name = 'receiver' then 
+							s.parent.children -> select(c | c.name = 'android:name')-> first().value
+							
+					else
+						OclUndefined
+					endif
+	
+)
+
+ }
+lazy rule CreateIntentFilter {
+	
+	from 
+			s:java!ClassInstanceCreation (s.type.type.name = 'IntentFilter')
+	
+	to
+			t:EventsDesc!Intent_Filter(
+				
+			
+			name <- s.refImmediateComposite().name,
+			action <-  thisModule.getAddActionMethod -> collect(c | thisModule.CreatAction(c)) ,
+			--action <-  thisModule.getAddActionMethodad -> collect(c | thisModule.CreatActionad(c)) ,
+			data <-thisModule.getAddPAthMethod -> collect(c | thisModule.CreatData(c)) ,
+			category <- thisModule.getAddcategoryMethod -> collect(c | thisModule.CreatCategory(c)),
+			
+
+			reciver_name <- 
+							if s.refImmediateComposite().usageInVariableAccess -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)).notEmpty() then 
+									if	s.refImmediateComposite().usageInVariableAccess -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> flatten() -> select(c | c.refImmediateComposite().method.name = 'registerReceiver').first().getSetActionMethod.arguments->flatten()->select(c | c.oclIsTypeOf(java!FieldAccess)).notEmpty() then  
+											s.refImmediateComposite().usageInVariableAccess -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> flatten() -> select(c | c.refImmediateComposite().method.name = 'registerReceiver').first().getSetActionMethod.arguments->flatten()->select(c | c.oclIsTypeOf(java!FieldAccess))-> first().field.variable.name
+									else 
+											if	s.refImmediateComposite().usageInVariableAccess -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> flatten() -> select(c | c.refImmediateComposite().method.name = 'registerReceiver').first().getSetActionMethod.arguments->first().oclIsTypeOf(java!SingleVariableAccess) then  
+					--	if	s.refImmediateComposite().usageInVariableAccess -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> flatten() -> select(c | c.refImmediateComposite().method.name = 'registerReceiver').first().getSetActionMethod.arguments->flatten()->select(c | c.oclIsTypeOf(java!UnresolvedItemAccess)).first().element.name = '' then
+						 
+							
+					s.refImmediateComposite().usageInVariableAccess -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> flatten() -> select(c | c.refImmediateComposite().method.name = 'registerReceiver')->first().getContainerOfSingleVariableSAccess.getNameofSingleVariableAccess -> first().variable.name
+					else 
+							s.refImmediateComposite().usageInVariableAccess -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> flatten() -> select(c | c.refImmediateComposite().method.name = 'registerReceiver').first().getSetActionMethod.arguments->flatten()->select(c | c.oclIsTypeOf(java!UnresolvedItemAccess)).first().element.name
+						endif
+						endif
+					else 
+						OclUndefined
+					endif
+			
+			)
+					
+		
+	
+}
+ rule Element2action {
+	from
+		s:XML!Element (s.name='action')
+
+	to
+		 t:EventsDesc!Action
+(		Name <- if s.getAttribute('android:name').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:name').value
+			endif
+			)
+}
+
+lazy rule CreatAction {
+	
+	from
+	    s:java!MethodInvocation(s.method.name = 'addAction')
+		
+		
+	to
+	    t:EventsDesc!Action(
+	    	
+	    	
+		Name <- 
+				if s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!StringLiteral)).notEmpty() then
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!StringLiteral)) -> first().escapedValue
+				else if 
+				
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)).notEmpty() then
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) ->first().variable.name
+				else 
+				
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!UnresolvedItemAccess)) ->first().element.name
+			endif	
+				endif	
+	    	)
+}
+rule Element2category {
+	from
+		s:XML!Element (s.name='category')
+
+	to
+		 t:EventsDesc!Category
+(		Name <- if s.getAttribute('android:name').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:name').value
+			endif
+			)
+}
+lazy rule CreatCategory {
+	
+	from
+	    s:java!MethodInvocation(s.method.name = 'addCategory')
+		
+		
+	to
+	    t:EventsDesc!Category(
+	    	
+	    	
+		Name <- if s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!StringLiteral)).notEmpty() then
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!StringLiteral)) -> first().escapedValue
+				else 
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) ->first().variable.name
+					endif
+	    	)
+}
+rule Element2data {
+	from
+		s:XML!Element (s.name='data')
+
+	to
+		 t:EventsDesc!Action
+(		data_Type <- if s.getAttribute('android:mimeType').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:mimeType').value
+			endif,
+		URI <- if s.getAttribute('android:path').oclIsUndefined() then
+		OclUndefined
+		else
+			s.getAttribute('android:path').value
+			endif
+			)
+}
+lazy rule CreatData {
+	
+	from
+	    s:java!MethodInvocation(s.method.name = 'addDataPath')
+		
+		
+	to
+	    t:EventsDesc!Data(
+	    	
+	    	
+		URI  <- if s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!StringLiteral)).notEmpty() then
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!StringLiteral)) -> first().escapedValue
+				else 
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) ->first().variable.name
+					endif,
+		data_Type   <- if s.arguments-> flatten().last().oclIsTypeOf(java!StringLiteral) then
+					s.arguments-> flatten()-> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> last().escapedValue
+				else if s.arguments-> flatten().last().oclIsTypeOf(java!SingleVariableAccess) then
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) ->last().variable.name
+				else 
+					s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!UnresolvedItemAccess)) ->last().element.name
+					endif
+				endif
+	    	)
+}
+lazy rule CreateDialog 
+{
+from
+	    s:java!MethodInvocation(thisModule.name_of_Dialog_methodes.includes(s.method.name)  and not s.expression.oclIsUndefined())
+		
+		
+	to
+	    t:EventsDesc!Dialog(
+	    	
+	    name <- s.getNameofDialog,
+		layout <- if ( s.method.name = 'setContentView' or s.method.name = 'setView')  then  
+						
+								s.arguments-> flatten() -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> first().variable.name
+
+				 else
+							#none.toString()
+				endif ,
+				
+		NeutralButton <- if (s.method.name = 'setNeutralButton') then 
+							true
+						else 
+							false
+						endif,
+		PositiveButton <- if (s.method.name = 'setPositiveButton') then 
+							true
+						else 
+							false
+						endif,
+		NegativeButton <- if (s.method.name = 'setNegativeButton') then 
+							true
+						else
+							false
+						endif,
+		Items <- if (s.method.name = 'setItems') then 
+					true
+				else 
+					false
+				endif,
+		MultiChoiceItems <- if (s.method.name = 'setMultiChoiceItems') then 
+								true
+							else 
+								false
+							endif,
+		SingleChoiceItems <- if (s.method.name = 'setSingleChoiceItems') then 
+								true
+							else 
+								false
+							endif,
+		Contained_Activity <-
+		
+									s.originalCompilationUnit.name
+			
+	    )
+}
+lazy rule XMLView {
+	from 
+		 s:java!CastExpression (thisModule.name_of_views.includes(s.type.type.name))
+	to 
+	t:EventsDesc!view(
+		
+	ID <- if s.expression.oclIsTypeOf(java!MethodInvocation) then  
+		s.expression.arguments -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> first().variable.name
+				else
+					OclUndefined
+				endif
+					, 
+	name <- if s.refImmediateComposite().oclIsTypeOf(java!Assignment) then
+					s.refImmediateComposite().leftHandSide.field.variable.name
+				else
+					OclUndefined
+				endif,
+	Contained_Activity <- if s.expression.oclIsTypeOf(java!MethodInvocation)  then  
+						s.originalCompilationUnit.name
+					else 
+						OclUndefined
+						endif	
+	)
+}
+lazy  rule CreateView {
+	
+	from 
+			s:java!ClassInstanceCreation (thisModule.name_of_views.includes(s.type.type.name) )
+	
+	to
+			t:EventsDesc!view(
+		
+		ID  <- if s.refImmediateComposite().oclIsTypeOf(java!VariableDeclarationFragment) then 
+					if s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setId').notEmpty() then 
+						if s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setId')->first().getContainerOfSingleVariableSAccess.arguments -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)).notEmpty() then
+							s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setId')->first().getContainerOfSingleVariableSAccess.arguments -> select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> first().variable.name
+						else if s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setId')->first().getContainerOfSingleVariableSAccess.getNameofNumberLiteral.notEmpty() then
+							s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setId')->first().getContainerOfSingleVariableSAccess.getNameofNumberLiteral -> first().tokenValue
+						else 
+							s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setId')->first().getContainerOfSingleVariableSAccess.arguments->flatten()->select(c | c.oclIsTypeOf(java!PrefixExpression)) -> first().operator.toString() +
+							s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setId')->first().getContainerOfSingleVariableSAccess.arguments->flatten()->select(c | c.oclIsTypeOf(java!PrefixExpression)) -> first().operand.tokenValue
+						endif
+					endif
+				else 
+					OclUndefined
+				endif
+				else 
+					OclUndefined
+				endif,
+		Text <- if s.refImmediateComposite().oclIsTypeOf(java!VariableDeclarationFragment) then 
+					if s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setText').notEmpty() then 
+						if s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setText')->first().getContainerOfSingleVariableSAccess.getNameofStringLiteral.notEmpty() then 
+							s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setText')->first().getContainerOfSingleVariableSAccess.getNameofStringLiteral -> first().escapedValue
+						else 
+							s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setText')->first().getContainerOfSingleVariableSAccess.arguments->flatten()->select(c | c.oclIsTypeOf(java!SingleVariableAccess)) -> first().variable.name
+						endif
+					else 
+						OclUndefined
+					endif
+				else 
+						OclUndefined
+				endif,
+		name <- if s.refImmediateComposite().oclIsTypeOf(java!VariableDeclarationFragment) then 
+						s.refImmediateComposite().name
+				else
+					OclUndefined
+					endif
+						,
+		
+		Contained_Activity <- 
+		if s.originalCompilationUnit.name.endsWith('java') then 
+						s.originalCompilationUnit.name
+					
+						else 
+					OclUndefined
+				endif
+	
+		
+		)
+}
+
+lazy rule XMLInputButton extends  XMLView  {
+	from 
+			s:java!CastExpression (thisModule.name_of_input_button.includes(s.type.type.name ))
+	
+	to
+			t:EventsDesc!input_button(
+			
+
+			)
+}
+lazy rule createInputButton extends CreateView {
+	
+	from 
+			s:java!ClassInstanceCreation (thisModule.name_of_input_button.includes(s.type.type.name ))
+	
+	to
+			t:EventsDesc!input_button(
+			
+			)
+	}
+
+lazy rule XMLInputText extends XMLView {
+	from 
+			s:java!CastExpression (thisModule.name_of_input_text.includes(s.type.type.name ))
+	
+	to
+			t:EventsDesc!Input_Text(
+	
+			)
+	
+	
+}
+ lazy rule createInputText extends CreateView {
+	
+	from 
+			s:java!ClassInstanceCreation (thisModule.name_of_input_text.includes(s.type.type.name ))
+	
+	to
+			t:EventsDesc!Input_Text(
+				
+			Input_Type <- if s.refImmediateComposite().oclIsTypeOf(java!VariableDeclarationFragment) then  
+								if s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setInputType').notEmpty() then 
+									s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setInputType').first().getSetActionMethod.arguments -> flatten() -> select(c | c.oclIsTypeOf(java!InfixExpression)) -> first().rightOperand.variable.name
+								else 	
+									OclUndefined
+								endif
+							else 	
+									OclUndefined
+								endif,
+			Hint <-if s.refImmediateComposite().oclIsTypeOf(java!VariableDeclarationFragment) then  
+						if s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setHint').notEmpty() then 
+							s.refImmediateComposite().usageInVariableAccess->flatten()->select(c | c.refImmediateComposite().oclIsTypeOf(java!MethodInvocation)).flatten()->select(c | c.refImmediateComposite().method.name = 'setHint')->first().getContainerOfSingleVariableSAccess.getNameofStringLiteral -> first().escapedValue
+						else 
+							OclUndefined
+						endif
+							else 
+							OclUndefined
+						endif
+			)
+	}
+lazy rule XMLTextView  extends  XMLView  {
+	from 
+			s:java!CastExpression (s.type.type.name =  'TextView')
+	
+	to
+			t:EventsDesc!Text_view(
+	
+			)
+
+}
+ lazy rule CreateTextView extends CreateView {
+	
+	from 
+			s:java!ClassInstanceCreation (s.type.type.name ='TextView')
+	
+	to
+			t:EventsDesc!Text_view (
+			
+					
+			
+			)
+	}
+
+lazy rule XMLImageView  extends  XMLView  {
+	from 
+			s:java!CastExpression (s.type.type.name =  'ImageView')
+	
+	to
+			t:EventsDesc!Image_view(
+	
+			)
+
+}
+ lazy rule CreateImageView extends CreateView {
+	
+	from 
+			s:java!ClassInstanceCreation (s.type.type.name ='ImageView')
+	
+	to
+			t:EventsDesc!Image_view (
+			
+					
+			
+			)
+	}
+
+
+lazy rule XMLChecksInput extends  XMLView  {
+	from 
+			s:java!CastExpression (thisModule.name_of_checks_inputs.includes(s.type.type.name ))
+	
+	to
+			t:EventsDesc!input_checks(
+	
+			)
+	
+	
+}
+ lazy rule CreateChecksInput  extends CreateView {
+	
+	from 
+			s:java!ClassInstanceCreation (thisModule.name_of_checks_inputs.includes(s.type.type.name ))
+	
+	to
+			t:EventsDesc!input_checks (
+				
+	
+			)
+	}
+
+lazy rule CreateMenu extends CreateView {
+	
+	from 
+			s:java!ClassInstanceCreation (thisModule.name_of_Menues.includes(s.type.type.name)  )
+	
+	to
+		t:EventsDesc!Menu (
+		
+				  
+				)
+}
+

@@ -1,0 +1,21 @@
+[comment encoding = UTF-8 /]
+[module Values('http://www.example.org/EventProduction')]
+
+
+[template public generateValues(aValuesProviding : ValuesProviding)]
+
+[file ('values.txt', false, 'UTF-8')]
+[for (sms : ReceiveSMSs | receivesmss)]
+messagecccccc[sms.PhoneNumber/]hhhh[sms.Contents/]
+[/for]
+[for (calls : ReceiveCalls | receivecalls)]
+Calls@[calls.PhoneNumber/]
+[/for]
+[for (Filles : AddFiles | addfiles)]
+Fillescccccc[Filles.Filename/]hhhh[Filles.Contents/]
+[/for]
+[for (Locations : ChangeLocation | changelocation)]
+Locations@[Locations.Altitude/]_[Locations.latitude/]#[Locations.longitude/]
+[/for]
+[/file]
+[/template]

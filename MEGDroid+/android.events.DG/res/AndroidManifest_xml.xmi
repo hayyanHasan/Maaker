@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ASCII"?>
+<modisco.xml:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modisco.xml="http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML" name="manifest">
+  <children xsi:type="modisco.xml:Attribute" name="android:versionCode" value="183"/>
+  <children xsi:type="modisco.xml:Attribute" name="android:versionName" value="4.11.1"/>
+  <children xsi:type="modisco.xml:Attribute" name="package" value="net.cdeguet.smartkeyboardpro"/>
+  <children xsi:type="modisco.xml:Attribute" name="platformBuildVersionCode" value="21"/>
+  <children xsi:type="modisco.xml:Attribute" name="platformBuildVersionName" value="5.0.1-1624448"/>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="uses-sdk">
+    <children xsi:type="modisco.xml:Attribute" name="android:minSdkVersion" value="8"/>
+    <children xsi:type="modisco.xml:Attribute" name="android:targetSdkVersion" value="17"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="supports-screens">
+    <children xsi:type="modisco.xml:Attribute" name="android:anyDensity" value="true"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="uses-permission">
+    <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.permission.READ_USER_DICTIONARY"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="uses-permission">
+    <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.permission.VIBRATE"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="uses-permission">
+    <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.permission.READ_CONTACTS"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="uses-permission">
+    <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="uses-permission">
+    <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.permission.RECORD_AUDIO"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="uses-feature">
+    <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.hardware.microphone"/>
+    <children xsi:type="modisco.xml:Attribute" name="android:required" value="false"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  <children xsi:type="modisco.xml:Element" name="application">
+    <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/app_name"/>
+    <children xsi:type="modisco.xml:Attribute" name="android:icon" value="@drawable/icon"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="service">
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.SmartKeyboard"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:permission" value="android.permission.BIND_INPUT_METHOD"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.view.InputMethod"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="meta-data">
+        <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.view.im"/>
+        <children xsi:type="modisco.xml:Attribute" name="android:resource" value="@xml/method"/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/keyboard_settings"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.Settings"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/app_name"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.SetupActivity"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:launchMode" value="singleTask"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:noHistory" value="true"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="category">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.category.LAUNCHER"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/app_name"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.SetupWizardActivity"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:clearTaskOnLaunch" value="true"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/custom_autotext"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.AutoTextEditor"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/user_dictionary"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.UserDictionaryEditor"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/smiley_editor_title"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.SmileyEditor"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/domain_editor_title"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.DomainEditor"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/calibration"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.Calibration"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:label" value="@string/skin_selection"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.SkinList"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      <children xsi:type="modisco.xml:Element" name="intent-filter">
+        <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+        <children xsi:type="modisco.xml:Element" name="action">
+          <children xsi:type="modisco.xml:Attribute" name="android:name" value="android.intent.action.MAIN"/>
+        </children>
+        <children xsi:type="modisco.xml:Text" name="&#xA;            "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="provider">
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.AutoTextProvider"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:authorities" value="net.cdeguet.smartkeyboardpro.autotextprovider"/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="provider">
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.UserDictionaryProvider"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:authorities" value="net.cdeguet.smartkeyboardpro.userdicprovider"/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="provider">
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="net.cdeguet.smartkeyboardpro.MyBackupPro"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:authorities" value="net.cdeguet.smartkeyboardpro.MyBackupPro"/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="service">
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="com.google.android.voiceime.ServiceHelper"/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;        "/>
+    <children xsi:type="modisco.xml:Element" name="activity">
+      <children xsi:type="modisco.xml:Attribute" name="android:theme" value="@*android:style/Theme.Translucent.NoTitleBar"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:name" value="com.google.android.voiceime.ActivityHelper"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:finishOnTaskLaunch" value="true"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:clearTaskOnLaunch" value="true"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:excludeFromRecents" value="true"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:launchMode" value="singleInstance"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:configChanges" value="keyboard|keyboardHidden|navigation|orientation"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:windowSoftInputMode" value="stateUnchanged|stateHidden|stateAlwaysHidden|stateAlwaysVisible"/>
+      <children xsi:type="modisco.xml:Attribute" name="android:documentLaunchMode" value="never"/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;    "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;"/>
+  <namespaces name="android" value="http://schemas.android.com/apk/res/android"/>
+</modisco.xml:Root>

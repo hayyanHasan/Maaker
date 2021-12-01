@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<www.ASEC.com:ApplicationPolicyFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:www.ASEC.com="www.ASEC.com" Package="net.cdeguet.smartkeyboardpro" VersionCode="183" VersionName="4.11.1">
+  <UsesSDK minSdkVersion="8" targetSdkVersion="17"/>
+  <applicationlevelPermission name="android.permission.READ_USER_DICTIONARY" Permisionkind="Dangerous"/>
+  <applicationlevelPermission name="android.permission.VIBRATE"/>
+  <applicationlevelPermission name="android.permission.READ_CONTACTS" Permisionkind="Dangerous"/>
+  <applicationlevelPermission name="android.permission.WRITE_EXTERNAL_STORAGE" Permisionkind="Dangerous"/>
+  <applicationlevelPermission name="android.permission.RECORD_AUDIO"/>
+  <app Label="@string/app_name" icon="@drawable/icon">
+    <Components xsi:type="www.ASEC.com:Service" name="net.cdeguet.smartkeyboardpro.SmartKeyboard" exported="true" permission="android.permission.BIND_INPUT_METHOD" enabled="false" Data="true">
+      <filters>
+        <actions name="android.view.InputMethod"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.Settings" exported="true" label="@string/keyboard_settings" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.SetupActivity" exported="true" label="@string/app_name" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+        <category name="android.intent.category.LAUNCHER"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.SetupWizardActivity" exported="true" label="@string/app_name" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.AutoTextEditor" exported="true" label="@string/custom_autotext" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.UserDictionaryEditor" exported="true" label="@string/user_dictionary" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.SmileyEditor" exported="true" label="@string/smiley_editor_title" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.DomainEditor" exported="true" label="@string/domain_editor_title" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.Calibration" exported="true" label="@string/calibration" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:Activity" name="net.cdeguet.smartkeyboardpro.SkinList" exported="true" label="@string/skin_selection" enabled="false">
+      <filters>
+        <actions name="android.intent.action.MAIN"/>
+      </filters>
+    </Components>
+    <Components xsi:type="www.ASEC.com:ContentProvider" name="net.cdeguet.smartkeyboardpro.AutoTextProvider" enabled="false" authorities="net.cdeguet.smartkeyboardpro.autotextprovider"/>
+    <Components xsi:type="www.ASEC.com:ContentProvider" name="net.cdeguet.smartkeyboardpro.UserDictionaryProvider" enabled="false" authorities="net.cdeguet.smartkeyboardpro.userdicprovider"/>
+    <Components xsi:type="www.ASEC.com:ContentProvider" name="net.cdeguet.smartkeyboardpro.MyBackupPro" enabled="false" authorities="net.cdeguet.smartkeyboardpro.MyBackupPro"/>
+    <Components xsi:type="www.ASEC.com:Service" name="com.google.android.voiceime.ServiceHelper" enabled="false"/>
+    <Components xsi:type="www.ASEC.com:Activity" name="com.google.android.voiceime.ActivityHelper" enabled="false" Data="true"/>
+  </app>
+  <Intents IntentKind="implicit" SendComponentName="NotificationManagerCompat.java" name="no name" Data="no"/>
+  <Intents IntentKind="implicit" SendComponentName="NotificationManagerCompat.java" name="no name" Action="&quot;android.support.BIND_NOTIFICATION_SIDE_CHANNEL&quot;" Data="no"/>
+  <Intents IntentKind="implicit" SendComponentName="MediaButtonReceiver.java" name="intent2" Action="&quot;android.intent.action.MEDIA_BUTTON&quot;" Data="no"/>
+  <Intents IntentKind="implicit" SendComponentName="MediaSessionCompat.java" name="intent" Action="&quot;android.intent.action.MEDIA_BUTTON&quot;" Data="yes"/>
+  <Intents SendComponentName="VoiceInput.java" name="intent" Action="&quot;android.speech.action.RECOGNIZE_SPEECH&quot;" Data="no"/>
+  <Intents IntentKind="implicit" SendComponentName="ActivityHelper.java" name="intent" Action="&quot;android.speech.action.RECOGNIZE_SPEECH&quot;" Data="yes" MethodForSend="startActivityForResult"/>
+  <Intents IntentKind="implicit" SendComponentName="IntentApiTrigger.java" name="no name" Action="&quot;android.speech.action.RECOGNIZE_SPEECH&quot;" Data="no"/>
+  <Intents SendComponentName="ServiceHelper.java" name="intent" Data="no" MethodForSend="startActivity"/>
+  <Intents SendComponentName="ServiceBridge.java" name="no name" Data="no" MethodForSend="bindService"/>
+  <Intents SendComponentName="ServiceBridge.java" name="no name" Data="no" MethodForSend="bindService"/>
+  <Intents IntentKind="implicit" SendComponentName="SkinList.java" name="no name" Action="&quot;com.betterandroid.betterkeyboard.skins&quot;" Data="no"/>
+  <Intents IntentKind="implicit" SendComponentName="SkinList.java" name="no name" Action="&quot;android.intent.action.VIEW&quot;" Data="no" MethodForSend="startActivity"/>
+  <Intents SendComponentName="SetupActivity.java" name="intent" Data="no" MethodForSend="startActivity"/>
+  <Intents IntentKind="implicit" SendComponentName="SmartKeyboard.java" name="intent" Action="&quot;android.intent.action.VIEW&quot;" Data="yes" MethodForSend="startActivity"/>
+  <Intents IntentKind="implicit" SendComponentName="SmartKeyboard.java" name="intent" Action="&quot;android.intent.action.VIEW&quot;" Data="yes" MethodForSend="startActivity"/>
+  <Intents SendComponentName="SmartKeyboard.java" name="intent" Action="&quot;android.intent.action.MAIN&quot;" Data="no" MethodForSend="startActivity"/>
+  <Intents SendComponentName="SmartKeyboard.java" name="no name" Data="no"/>
+  <Intents SendComponentName="SmartKeyboard.java" name="no name" Data="no"/>
+  <Intents SendComponentName="SetupWizardActivity.java" name="intent" Data="no" MethodForSend="startActivity"/>
+  <Intents SendComponentName="SetupWizardActivity.java" name="intent" Data="no" MethodForSend="startActivity"/>
+  <Intents IntentKind="implicit" SendComponentName="SetupWizardActivity.java" name="intent" Action="&quot;android.settings.INPUT_METHOD_SETTINGS&quot;" Data="no" MethodForSend="startActivity"/>
+  <Intents IntentKind="implicit" SendComponentName="Main.java" name="no name" Action="&quot;android.settings.INPUT_METHOD_SETTINGS&quot;" Data="no" MethodForSend="startActivity"/>
+  <Intents SendComponentName="Main.java" name="intent" Action="&quot;android.intent.action.MAIN&quot;" Data="no" MethodForSend="startActivity"/>
+  <Intents IntentKind="implicit" SendComponentName="Main.java" name="no name" Action="&quot;android.intent.action.VIEW&quot;" Data="no" MethodForSend="startActivity"/>
+</www.ASEC.com:ApplicationPolicyFile>

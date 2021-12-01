@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="EventProduction" nsURI="http://www.example.org/EventProduction"
+    nsPrefix="EventProduction">
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratedEvents">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system_events" upperBound="-1"
+        eType="#//SystemEventsAndServices" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ui_events" upperBound="-1"
+        eType="#//UIEvents" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valuesproviding" upperBound="-1"
+        eType="#//ValuesProviding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evasiontechniques" upperBound="-1"
+        eType="#//EvasionTechniques" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemEventsAndServices" eSuperTypes="#//GeneratedEvents">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reciver_based" upperBound="-1"
+        eType="#//ReciverBased" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PakageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="permission_based" upperBound="-1"
+        eType="#//PermissionBased" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service_based" upperBound="-1"
+        eType="#//ServiceBased" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReciverBased">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventsName" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intent_filter" upperBound="-1"
+        eType="#//IntentFilter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PredefinedIntents" eType="#//Predefined_Intents_Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Touch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumberOftouches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIEvents" eSuperTypes="#//GeneratedEvents">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component2run" upperBound="-1"
+        eType="#//Component2Run" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PakageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component2Run">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ActivityName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="touch" upperBound="-1"
+        eType="#//Touch" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="drag" upperBound="-1" eType="#//Drag"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//Type"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="press" upperBound="-1"
+        eType="#//Press" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Drag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumberOfDrags" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventsName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ContainedActivity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Press">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="KeyName" eType="#//Name_Of_Keys"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ContainedActivity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//Press_Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Name_Of_Keys">
+    <eLiterals name="KEYCODE_ENTER"/>
+    <eLiterals name="KEYCODE_UNKNOWN" value="1" literal="KEYCODE_UNKNOWN"/>
+    <eLiterals name="KEYCODE_POWER" value="2"/>
+    <eLiterals name="KEYCODE_CAMERA" value="3"/>
+    <eLiterals name="KEYCODE_CLEAR" value="4"/>
+    <eLiterals name="KEYCODE_SYM" value="5"/>
+    <eLiterals name="KEYCODE_EXPLORER" value="6"/>
+    <eLiterals name="KEYCODE_ENVELOPE" value="7"/>
+    <eLiterals name="KEYCODE_DEL" value="8"/>
+    <eLiterals name="KEYCODE_HEADSETHOOK" value="9"/>
+    <eLiterals name="KEYCODE_FOCUS" value="10"/>
+    <eLiterals name="KEYCODE_NOTIFICATION" value="11"/>
+    <eLiterals name="KEYCODE_SEARCH" value="12"/>
+    <eLiterals name="KEYCODE_PLAYPAUSE" value="13"/>
+    <eLiterals name="KEYCODE_STOP" value="14"/>
+    <eLiterals name="KEYCODE_NEXTSONG" value="15"/>
+    <eLiterals name="KEYCODE_PREVIOUSSONG" value="16"/>
+    <eLiterals name="KEYCODE_REWIND" value="17"/>
+    <eLiterals name="KEYCODE_FORWARD" value="18"/>
+    <eLiterals name="KEYCODE_MUTE" value="19"/>
+    <eLiterals name="KEYCODE_CALL" value="2"/>
+    <eLiterals name="KEYCODE_BACK" value="1"/>
+    <eLiterals name="KEYCODE_VOLUME_UP" value="4"/>
+    <eLiterals name="KEYCODE_ENDCALL" value="3"/>
+    <eLiterals name="KEYCODE_HOME"/>
+    <eLiterals name="KEYCODE_VOLUME_DOWN" value="5"/>
+    <eLiterals name="KEYCODE_DPAD_CENTER" value="1"/>
+    <eLiterals name="KEYCODE_MENU"/>
+    <eLiterals name="KEYCODE_DPAD_UP"/>
+    <eLiterals name="KEYCODE_DPAD_DOWN" value="1"/>
+    <eLiterals name="KEYCODE_DPAD_LEFT" value="2"/>
+    <eLiterals name="KEYCODE_DPAD_RIGHT" value="3"/>
+    <eLiterals name="KEYCODE_TAB" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PermissionBased">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//PermissionType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceBased">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventsName" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntentFilter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Action" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Category" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Type_Of_Sensores">
+    <eLiterals name="acceleration"/>
+    <eLiterals name="magnetic-field" value="1"/>
+    <eLiterals name="orientation" value="2"/>
+    <eLiterals name="temperature" value="3"/>
+    <eLiterals name="proximity" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PermissionType">
+    <eLiterals name="Phone_State"/>
+    <eLiterals name="Contacts" value="1"/>
+    <eLiterals name="Messages" value="3"/>
+    <eLiterals name="Broweser" value="4"/>
+    <eLiterals name="Calender" value="5"/>
+    <eLiterals name="Files" value="6"/>
+    <eLiterals name="Account" value="8"/>
+    <eLiterals name="Calls" value="7"/>
+    <eLiterals name="Boot" value="8"/>
+    <eLiterals name="Location" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Predefined_Intents_Type">
+    <eLiterals name="Battary"/>
+    <eLiterals name="Media" value="1"/>
+    <eLiterals name="Package" value="2"/>
+    <eLiterals name="Boot" value="3"/>
+    <eLiterals name="Power" value="4"/>
+    <eLiterals name="Time" value="5"/>
+    <eLiterals name="UMS" value="6"/>
+    <eLiterals name="PhoneState" value="7"/>
+    <eLiterals name="Bluetooth" value="8"/>
+    <eLiterals name="TTS" value="9"/>
+    <eLiterals name="Other" value="10"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Press_Type">
+    <eLiterals name="Key"/>
+    <eLiterals name="Checks" value="1"/>
+    <eLiterals name="Menu" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValuesProviding" eSuperTypes="#//GeneratedEvents">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changelocation" upperBound="-1"
+        eType="#//ChangeLocation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receivesmss" upperBound="-1"
+        eType="#//ReceiveSMSs" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receivecalls" upperBound="-1"
+        eType="#//ReceiveCalls" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="addfiles" upperBound="-1"
+        eType="#//AddFiles" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeLocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Altitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReceiveSMSs">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PhoneNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Contents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReceiveCalls">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PhoneNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddFiles">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Contents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvasionClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeneratedClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evasionmethodes" upperBound="-1"
+        eType="#//EvasionMethodes" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evasionfields" upperBound="-1"
+        eType="#//EvasionFields" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GetSet" eType="#//GetSetEvasions"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvasionFields">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeneratedFields" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvasionMethodes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeneratedMethodes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvasionArguments">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeneratedValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvasionTechniques" eSuperTypes="#//GeneratedEvents">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evasionclass" upperBound="-1"
+        eType="#//EvasionClass" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evasionarguments" upperBound="-1"
+        eType="#//EvasionArguments" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GetSetEvasions">
+    <eLiterals name="Get"/>
+    <eLiterals name="Set" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

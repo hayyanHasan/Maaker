@@ -1,0 +1,145 @@
+[comment encoding = UTF-8 /]
+[module System('http://www.example.org/EventProduction')]
+
+
+[template public generateSystem(aSystem_Events : SystemEventsAndServices)]
+
+
+[file ('system.txt', false, 'UTF-8')]
+[for (rec : ReciverBased | reciver_based)]
+	[for (inte : IntentFilter | intent_filter)]
+	[if (inte.Category.oclIsUndefined() and inte.Data.oclIsUndefined())]
+[rec.EventsName/] [inte.Action/]
+	[/if]
+	[if (inte.Category.oclIsUndefined() and not inte.Data.oclIsUndefined())]
+[rec.EventsName/] [inte.Action/] -d [inte.Data/]
+	[/if]
+	[if (inte.Data.oclIsUndefined() and not inte.Category.oclIsUndefined())]
+[rec.EventsName/] [inte.Action/] -c [inte.Category/]
+	[/if]
+	[if (not inte.Data.oclIsUndefined() and not inte.Category.oclIsUndefined())]
+[rec.EventsName/] [inte.Action/] -d [inte.Data/] -c [inte.Category/]
+	[/if]
+	[/for]
+[if (rec.PredefinedIntents.toString().contains('Battary'))] 
+Predefined@Battary
+[/if]
+[if (rec.PredefinedIntents.toString().contains('Media'))]
+Predefined@Media
+[/if]
+[if (rec.PredefinedIntents.toString().contains('Package'))]
+Predefined@Package
+[/if]
+[if (rec.PredefinedIntents.toString().contains('Boot'))]
+Predefined@Boot
+[/if]
+[if (rec.PredefinedIntents.toString().contains('Power'))]
+Predefined@Power
+[/if]
+[if (rec.PredefinedIntents.toString().contains('Time'))]
+Predefined@Time
+[/if]
+[if (rec.PredefinedIntents.toString().contains('UMS'))]
+Predefined@UMS
+[/if]
+[if (rec.PredefinedIntents.toString().contains('PhoneState'))]
+Predefined@PhoneState
+[/if]
+[if (rec.PredefinedIntents.toString().contains('Bluetooth'))]
+Predefined@Bluetooth
+[/if]
+[if (rec.PredefinedIntents.toString().contains('TTS'))]
+Predefined@TTS
+[/if]
+[if (rec.PredefinedIntents.toString().contains('Other'))]
+Predefined@Other
+[/if]
+[/for] 
+[for (ser : ServiceBased| service_based)]
+[ser.EventsName/] [aSystem_Events.PakageName/]/[ser.Name/]
+[/for]
+[for (per : PermissionBased | permission_based)]
+[if (not per.Type.oclIsUndefined())]
+[if (per.Type.toString().contains('Boot'))]
+bootttt
+	[/if]
+	[if (per.Type.toString().contains('Phone_State'))]
+PH@service_state
+PH@sittings
+PH@netowrk
+PH@data
+PH@battary
+	[/if]
+[if (per.Type.toString().contains('Contacts'))]
+contacts
+	[/if]
+[if (per.Type.toString().contains('Calls'))]
+Make_Calls
+	[/if]
+	[if (per.Type.toString().contains('Messages'))]
+Send_Message
+	[/if]
+	[if (per.Type.toString().contains('Broweser'))]
+Broweser_History_BookMarks
+	[/if]
+	[if (per.Type.toString().contains('Calender'))]
+adb shell am broadcast -a android.intent.action.DATE_CHANGED
+adb shell input keyevent 208
+adb shell input keyevent 82
+adb shell input keyevent 66
+adb shell input keyevent 20
+adb shell input text "mdse"
+adb shell input keyevent 20
+adb shell input text "mdseLocation"
+adb shell input keyevent 4
+adb shell input keyevent 4
+	[/if]
+	[if (per.Type.toString().contains('Files'))]
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample1.txt /sdcard/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample2.txt /sdcard/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample4.jpg /sdcard/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample5.docx /sdcard/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample6.pdf /sdcard/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample7.docx /sdcard/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample8.pdf /sdcard/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample3.jpg /sdcard/
+adb shell input keyevent 84
+adb shell am broadcast -a android.intent.action.CAMERA_BUTTON
+adb shell input keyevent 66
+adb shell input keyevent 66
+adb shell input keyevent 66
+adb shell input keyevent 66
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample6.pdf /sdcard/Download/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample4.jpg  /sdcard/Download/
+adb shell input keyevent 84
+adb push C:\\Users\\hayyan\\Desktop\\Project\\samples\\sample2.txt /sdcard/Download/
+adb shell input keyevent 84
+adb shell input text "model.pdf"
+adb shell input keyevent 66
+adb shell input keyevent 20
+adb shell input keyevent 20
+adb shell input keyevent 20
+adb shell input keyevent 66
+adb shell input keyevent 20
+adb shell input keyevent 66
+adb shell input keyevent 20
+adb shell input keyevent 66
+adb shell input keyevent 4
+	[/if]
+[if (per.Type.toString().contains('Account'))]
+adb shell /system/bin/setprop ro.config.hosted_account mdse1@gmail.com
+adb shell /system/bin/setprop ro.config.google_account mdse2@gmail.com
+adb shell /system/bin/setprop ro.config.google_account mdse3@gmail.com
+[/if]
+[/if]
+[/for]
+[/file]
+[/template]

@@ -1,0 +1,1907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="UI" nsURI="org::eclipse::acceleo::module::EventsGenerating::UI" startHeaderPosition="30" endHeaderPosition="295">
+    <input>
+      <takesTypesFrom href="http://www.example.org/EventProduction#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateUI" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="adb shell am start -n "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;touch@"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%/t">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Touch/NumberOftouches"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%/t">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Touch/StartX"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%/t">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Touch/StartY"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+            <loopVariable name="t">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Touch)">
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/11">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//Component2Run/touch"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="adb shell am start -n "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Type@adb shell input text(&quot;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%.6/t">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Type"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Type/EventsName"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </source>
+                <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/first">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%.6/t">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Type"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Type/ContainedActivity"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="5">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  </argument>
+                </argument>
+              </ifExpr>
+            </body>
+            <loopVariable name="t">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Type"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Type)">
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/22">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//Component2Run/type"/>
+            </iterSet>
+          </body>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="mtl:IfBlock">
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Ckx@adb shell input keyevent "/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Name_Of_Keys"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateUI/%.1/%/%.7/p">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/KeyName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xA;"/>
+                <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Press_Type"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateUI/%.1/%/%.7/p">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/Type"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Checks">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+                </ifExpr>
+              </body>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </source>
+                <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/first">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateUI/%.1/%/%.7/p">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/ContainedActivity"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="5">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  </argument>
+                </argument>
+              </ifExpr>
+            </body>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Press)">
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/28">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//Component2Run/press"/>
+            </iterSet>
+          </body>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="mtl:IfBlock">
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="btn@adb shell input keyevent "/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Name_Of_Keys"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateUI/%.1/%/%.8/p">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/KeyName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xA;"/>
+                <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Press_Type"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateUI/%.1/%/%.8/p">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/Type"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Key">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+                </ifExpr>
+              </body>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </source>
+                <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/first">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateUI/%.1/%/%.8/p">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/ContainedActivity"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="5">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  </argument>
+                </argument>
+              </ifExpr>
+            </body>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Press)">
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/35">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//Component2Run/press"/>
+            </iterSet>
+          </body>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="adb shell am start -n "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;touch@"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%.9/t">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Touch/NumberOftouches"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%.9/t">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Touch/StartX"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateUI/%.1/%/%.9/t">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Touch/StartY"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+            <loopVariable name="t">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Touch)">
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/42">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//Component2Run/touch"/>
+            </iterSet>
+          </body>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="adb shell am start -n "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;drag@"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="d" referredVariable="/0/generateUI/%.1/%/%.10/d">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Drag/NumberOfDrags"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="d" referredVariable="/0/generateUI/%.1/%/%.10/d">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Drag/StartX"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="d" referredVariable="/0/generateUI/%.1/%/%.10/d">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Drag/StartY"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="!"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="d" referredVariable="/0/generateUI/%.1/%/%.10/d">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Drag/EndX"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="d" referredVariable="/0/generateUI/%.1/%/%.10/d">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Drag/EndY"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+            <loopVariable name="d">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Drag)">
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/51">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//Component2Run/drag"/>
+            </iterSet>
+          </body>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="mtl:IfBlock">
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="adb shell am start -n "/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell input swipe 700 700 700 700 2000&#xD;&#xA;adb shell input keyevent"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Name_Of_Keys"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="M" referredVariable="/0/generateUI/%.1/%/%.11/M">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/KeyName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell am start -n "/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell input swipe 700 700 700 700 2000&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Name_Of_Keys"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="M" referredVariable="/0/generateUI/%.1/%/%.11/M">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/KeyName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell am start -n "/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell input swipe 700 700 700 700 2000&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Name_Of_Keys"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="M" referredVariable="/0/generateUI/%.1/%/%.11/M">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/KeyName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell am start -n "/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell input swipe 700 700 700 700 2000&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Name_Of_Keys"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="M" referredVariable="/0/generateUI/%.1/%/%.11/M">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/KeyName"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;"/>
+                <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EEnum" href="http://www.example.org/EventProduction#//Press_Type"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="M" referredVariable="/0/generateUI/%.1/%/%.11/M">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/Type"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Menu">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+                </ifExpr>
+              </body>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/contains">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+                </source>
+                <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/first">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="M" referredVariable="/0/generateUI/%.1/%/%.11/M">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Press/ContainedActivity"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="5">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  </argument>
+                </argument>
+              </ifExpr>
+            </body>
+            <loopVariable name="M">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Press)">
+              <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/62">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//Component2Run/press"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="adb shell am start -n "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anUI_Events" referredVariable="/0/generateUI/anUI_Events">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//UIEvents/PakageName"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateUI/%.1/%/a">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/EventProduction#//Component2Run/ActivityName"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;adb shell input keyevent KEYCODE_MENU&#xD;&#xA;adb shell input keyevent KEYCODE_ENTER&#xD;&#xA;adb shell input keyevent KEYCODE_MENU&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_ENTER&#xD;&#xA;adb shell input keyevent KEYCODE_MENU&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_ENTER&#xD;&#xA;adb shell input keyevent KEYCODE_MENU&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_ENTER&#xD;&#xA;"/>
+          <loopVariable name="a">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Component2Run)">
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/9">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/EventProduction#//UIEvents/component2run"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="adb shell input keyevent KEYCODE_HOME&#xD;&#xA;adb shell input keyevent KEYCODE_SYM&#xD;&#xA;adb shell input keyevent KEYCODE_DPAD_DOWN&#xD;&#xA;adb shell input keyevent KEYCODE_ENTER&#xD;&#xA;adb shell input keyevent KEYCODE_VOLUME_UP&#xD;&#xA;adb shell input keyevent KEYCODE_VOLUME_DOWN&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UI.txt">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="anUI_Events">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="first">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="n">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="contains">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateUI">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateUI"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="anUI_Events">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventProduction_UIEvents_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/EventProduction#//UIEvents"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Component2Run)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Touch)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Type)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Press)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Drag)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Type"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Type"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Type"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Touch"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Drag"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Press"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//Component2Run"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/EventProduction#//UIEvents"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateUI">
+      <details key="start" value="89"/>
+      <details key="end" value="3320"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateUI/%">
+      <details key="start" value="143"/>
+      <details key="end" value="145"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateUI/%.1">
+      <details key="start" value="145"/>
+      <details key="end" value="3307"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateUI/%.1/%">
+      <details key="start" value="180"/>
+      <details key="end" value="3047"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateUI/%.1/%/%">
+      <details key="start" value="223"/>
+      <details key="end" value="375"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateUI/%.1/%/%/%">
+      <details key="start" value="250"/>
+      <details key="end" value="272"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateUI/%.1/%/%/%.1">
+      <details key="start" value="273"/>
+      <details key="end" value="295"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateUI/%.1/%/%/%.1/anUI_Events">
+      <details key="start" value="273"/>
+      <details key="end" value="284"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateUI/%.1/%/%/%.2">
+      <details key="start" value="297"/>
+      <details key="end" value="298"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateUI/%.1/%/%/%.3">
+      <details key="start" value="299"/>
+      <details key="end" value="313"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateUI/%.1/%/%/%.3/a">
+      <details key="start" value="299"/>
+      <details key="end" value="300"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateUI/%.1/%/%/%.4">
+      <details key="start" value="315"/>
+      <details key="end" value="323"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateUI/%.1/%/%/%.5">
+      <details key="start" value="324"/>
+      <details key="end" value="341"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateUI/%.1/%/%/%.5/t">
+      <details key="start" value="324"/>
+      <details key="end" value="325"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateUI/%.1/%/%/%.6">
+      <details key="start" value="343"/>
+      <details key="end" value="344"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateUI/%.1/%/%/%.7">
+      <details key="start" value="345"/>
+      <details key="end" value="353"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateUI/%.1/%/%/%.7/t">
+      <details key="start" value="345"/>
+      <details key="end" value="346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateUI/%.1/%/%/%.8">
+      <details key="start" value="355"/>
+      <details key="end" value="356"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateUI/%.1/%/%/%.9">
+      <details key="start" value="357"/>
+      <details key="end" value="365"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateUI/%.1/%/%/%.9/t">
+      <details key="start" value="357"/>
+      <details key="end" value="358"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateUI/%.1/%/%/%.10">
+      <details key="start" value="367"/>
+      <details key="end" value="369"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateUI/%.1/%/%/t">
+      <details key="start" value="229"/>
+      <details key="end" value="238"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateUI/%.1/%/%/%.11">
+      <details key="start" value="241"/>
+      <details key="end" value="246"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateUI/%.1/%/%/%.11/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateUI/%.1/%/%.1">
+      <details key="start" value="377"/>
+      <details key="end" value="399"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateUI/%.1/%/%.2">
+      <details key="start" value="400"/>
+      <details key="end" value="422"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateUI/%.1/%/%.2/anUI_Events">
+      <details key="start" value="400"/>
+      <details key="end" value="411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateUI/%.1/%/%.3">
+      <details key="start" value="424"/>
+      <details key="end" value="425"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateUI/%.1/%/%.4">
+      <details key="start" value="426"/>
+      <details key="end" value="440"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateUI/%.1/%/%.4/a">
+      <details key="start" value="426"/>
+      <details key="end" value="427"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateUI/%.1/%/%.5">
+      <details key="start" value="442"/>
+      <details key="end" value="444"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateUI/%.1/%/%.6">
+      <details key="start" value="444"/>
+      <details key="end" value="634"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateUI/%.1/%/%.6/%">
+      <details key="start" value="469"/>
+      <details key="end" value="626"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateUI/%.1/%/%.6/%/%">
+      <details key="start" value="531"/>
+      <details key="end" value="558"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateUI/%.1/%/%.6/%/%.1">
+      <details key="start" value="559"/>
+      <details key="end" value="571"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateUI/%.1/%/%.6/%/%.1/t">
+      <details key="start" value="559"/>
+      <details key="end" value="560"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateUI/%.1/%/%.6/%/%.2">
+      <details key="start" value="573"/>
+      <details key="end" value="621"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateUI/%.1/%/%.6/%/%.3">
+      <details key="start" value="473"/>
+      <details key="end" value="528"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateUI/%.1/%/%.6/%/%.3/%">
+      <details key="start" value="474"/>
+      <details key="end" value="488"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateUI/%.1/%/%.6/%/%.3/%/a">
+      <details key="start" value="474"/>
+      <details key="end" value="475"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateUI/%.1/%/%.6/%/%.3/%.1">
+      <details key="start" value="498"/>
+      <details key="end" value="526"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateUI/%.1/%/%.6/%/%.3/%.1/%">
+      <details key="start" value="498"/>
+      <details key="end" value="517"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateUI/%.1/%/%.6/%/%.3/%.1/%/t">
+      <details key="start" value="498"/>
+      <details key="end" value="499"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateUI/%.1/%/%.6/%/%.3/%.1/%.1">
+      <details key="start" value="524"/>
+      <details key="end" value="525"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateUI/%.1/%/%.6/t">
+      <details key="start" value="450"/>
+      <details key="end" value="458"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateUI/%.1/%/%.6/%.1">
+      <details key="start" value="461"/>
+      <details key="end" value="465"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateUI/%.1/%/%.6/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateUI/%.1/%/%.7">
+      <details key="start" value="636"/>
+      <details key="end" value="857"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateUI/%.1/%/%.7/%">
+      <details key="start" value="664"/>
+      <details key="end" value="849"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateUI/%.1/%/%.7/%/%">
+      <details key="start" value="726"/>
+      <details key="end" value="842"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateUI/%.1/%/%.7/%/%/%">
+      <details key="start" value="751"/>
+      <details key="end" value="780"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateUI/%.1/%/%.7/%/%/%.1">
+      <details key="start" value="781"/>
+      <details key="end" value="790"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateUI/%.1/%/%.7/%/%/%.1/p">
+      <details key="start" value="781"/>
+      <details key="end" value="782"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateUI/%.1/%/%.7/%/%/%.2">
+      <details key="start" value="792"/>
+      <details key="end" value="837"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateUI/%.1/%/%.7/%/%/%.3">
+      <details key="start" value="730"/>
+      <details key="end" value="749"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateUI/%.1/%/%.7/%/%/%.3/%">
+      <details key="start" value="731"/>
+      <details key="end" value="737"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateUI/%.1/%/%.7/%/%/%.3/%/p">
+      <details key="start" value="731"/>
+      <details key="end" value="732"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateUI/%.1/%/%.7/%/%/%.3/%.1">
+      <details key="start" value="740"/>
+      <details key="end" value="748"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateUI/%.1/%/%.7/%/%.1">
+      <details key="start" value="668"/>
+      <details key="end" value="723"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateUI/%.1/%/%.7/%/%.1/%">
+      <details key="start" value="669"/>
+      <details key="end" value="683"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateUI/%.1/%/%.7/%/%.1/%/a">
+      <details key="start" value="669"/>
+      <details key="end" value="670"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateUI/%.1/%/%.7/%/%.1/%.1">
+      <details key="start" value="693"/>
+      <details key="end" value="721"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateUI/%.1/%/%.7/%/%.1/%.1/%">
+      <details key="start" value="693"/>
+      <details key="end" value="712"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateUI/%.1/%/%.7/%/%.1/%.1/%/p">
+      <details key="start" value="693"/>
+      <details key="end" value="694"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateUI/%.1/%/%.7/%/%.1/%.1/%.1">
+      <details key="start" value="719"/>
+      <details key="end" value="720"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateUI/%.1/%/%.7/p">
+      <details key="start" value="642"/>
+      <details key="end" value="651"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateUI/%.1/%/%.7/%.1">
+      <details key="start" value="654"/>
+      <details key="end" value="659"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateUI/%.1/%/%.7/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateUI/%.1/%/%.8">
+      <details key="start" value="859"/>
+      <details key="end" value="1077"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateUI/%.1/%/%.8/%">
+      <details key="start" value="889"/>
+      <details key="end" value="1069"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateUI/%.1/%/%.8/%/%">
+      <details key="start" value="951"/>
+      <details key="end" value="1062"/>
+      <details key="line" value="30"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateUI/%.1/%/%.8/%/%/%">
+      <details key="start" value="971"/>
+      <details key="end" value="1000"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateUI/%.1/%/%.8/%/%/%.1">
+      <details key="start" value="1001"/>
+      <details key="end" value="1010"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateUI/%.1/%/%.8/%/%/%.1/p">
+      <details key="start" value="1001"/>
+      <details key="end" value="1002"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateUI/%.1/%/%.8/%/%/%.2">
+      <details key="start" value="1012"/>
+      <details key="end" value="1057"/>
+      <details key="line" value="32"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateUI/%.1/%/%.8/%/%/%.3">
+      <details key="start" value="955"/>
+      <details key="end" value="969"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateUI/%.1/%/%.8/%/%/%.3/%">
+      <details key="start" value="956"/>
+      <details key="end" value="962"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateUI/%.1/%/%.8/%/%/%.3/%/p">
+      <details key="start" value="956"/>
+      <details key="end" value="957"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateUI/%.1/%/%.8/%/%/%.3/%.1">
+      <details key="start" value="963"/>
+      <details key="end" value="968"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateUI/%.1/%/%.8/%/%.1">
+      <details key="start" value="893"/>
+      <details key="end" value="948"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateUI/%.1/%/%.8/%/%.1/%">
+      <details key="start" value="894"/>
+      <details key="end" value="908"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateUI/%.1/%/%.8/%/%.1/%/a">
+      <details key="start" value="894"/>
+      <details key="end" value="895"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateUI/%.1/%/%.8/%/%.1/%.1">
+      <details key="start" value="918"/>
+      <details key="end" value="946"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateUI/%.1/%/%.8/%/%.1/%.1/%">
+      <details key="start" value="918"/>
+      <details key="end" value="937"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateUI/%.1/%/%.8/%/%.1/%.1/%/p">
+      <details key="start" value="918"/>
+      <details key="end" value="919"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateUI/%.1/%/%.8/%/%.1/%.1/%.1">
+      <details key="start" value="944"/>
+      <details key="end" value="945"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateUI/%.1/%/%.8/p">
+      <details key="start" value="865"/>
+      <details key="end" value="874"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateUI/%.1/%/%.8/%.1">
+      <details key="start" value="877"/>
+      <details key="end" value="882"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateUI/%.1/%/%.8/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateUI/%.1/%/%.9">
+      <details key="start" value="1079"/>
+      <details key="end" value="1231"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateUI/%.1/%/%.9/%">
+      <details key="start" value="1106"/>
+      <details key="end" value="1128"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateUI/%.1/%/%.9/%.1">
+      <details key="start" value="1129"/>
+      <details key="end" value="1151"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateUI/%.1/%/%.9/%.1/anUI_Events">
+      <details key="start" value="1129"/>
+      <details key="end" value="1140"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateUI/%.1/%/%.9/%.2">
+      <details key="start" value="1153"/>
+      <details key="end" value="1154"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateUI/%.1/%/%.9/%.3">
+      <details key="start" value="1155"/>
+      <details key="end" value="1169"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateUI/%.1/%/%.9/%.3/a">
+      <details key="start" value="1155"/>
+      <details key="end" value="1156"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateUI/%.1/%/%.9/%.4">
+      <details key="start" value="1171"/>
+      <details key="end" value="1179"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateUI/%.1/%/%.9/%.5">
+      <details key="start" value="1180"/>
+      <details key="end" value="1197"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateUI/%.1/%/%.9/%.5/t">
+      <details key="start" value="1180"/>
+      <details key="end" value="1181"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateUI/%.1/%/%.9/%.6">
+      <details key="start" value="1199"/>
+      <details key="end" value="1200"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateUI/%.1/%/%.9/%.7">
+      <details key="start" value="1201"/>
+      <details key="end" value="1209"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateUI/%.1/%/%.9/%.7/t">
+      <details key="start" value="1201"/>
+      <details key="end" value="1202"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateUI/%.1/%/%.9/%.8">
+      <details key="start" value="1211"/>
+      <details key="end" value="1212"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateUI/%.1/%/%.9/%.9">
+      <details key="start" value="1213"/>
+      <details key="end" value="1221"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateUI/%.1/%/%.9/%.9/t">
+      <details key="start" value="1213"/>
+      <details key="end" value="1214"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateUI/%.1/%/%.9/%.10">
+      <details key="start" value="1223"/>
+      <details key="end" value="1225"/>
+      <details key="line" value="39"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateUI/%.1/%/%.9/t">
+      <details key="start" value="1085"/>
+      <details key="end" value="1094"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateUI/%.1/%/%.9/%.11">
+      <details key="start" value="1097"/>
+      <details key="end" value="1102"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateUI/%.1/%/%.9/%.11/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateUI/%.1/%/%.10">
+      <details key="start" value="1233"/>
+      <details key="end" value="1400"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateUI/%.1/%/%.10/%">
+      <details key="start" value="1258"/>
+      <details key="end" value="1280"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateUI/%.1/%/%.10/%.1">
+      <details key="start" value="1281"/>
+      <details key="end" value="1303"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateUI/%.1/%/%.10/%.1/anUI_Events">
+      <details key="start" value="1281"/>
+      <details key="end" value="1292"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateUI/%.1/%/%.10/%.2">
+      <details key="start" value="1305"/>
+      <details key="end" value="1306"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateUI/%.1/%/%.10/%.3">
+      <details key="start" value="1307"/>
+      <details key="end" value="1321"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateUI/%.1/%/%.10/%.3/a">
+      <details key="start" value="1307"/>
+      <details key="end" value="1308"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateUI/%.1/%/%.10/%.4">
+      <details key="start" value="1323"/>
+      <details key="end" value="1330"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateUI/%.1/%/%.10/%.5">
+      <details key="start" value="1331"/>
+      <details key="end" value="1346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateUI/%.1/%/%.10/%.5/d">
+      <details key="start" value="1331"/>
+      <details key="end" value="1332"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateUI/%.1/%/%.10/%.6">
+      <details key="start" value="1348"/>
+      <details key="end" value="1349"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateUI/%.1/%/%.10/%.7">
+      <details key="start" value="1350"/>
+      <details key="end" value="1358"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateUI/%.1/%/%.10/%.7/d">
+      <details key="start" value="1350"/>
+      <details key="end" value="1351"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateUI/%.1/%/%.10/%.8">
+      <details key="start" value="1360"/>
+      <details key="end" value="1361"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateUI/%.1/%/%.10/%.9">
+      <details key="start" value="1362"/>
+      <details key="end" value="1370"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateUI/%.1/%/%.10/%.9/d">
+      <details key="start" value="1362"/>
+      <details key="end" value="1363"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateUI/%.1/%/%.10/%.10">
+      <details key="start" value="1372"/>
+      <details key="end" value="1373"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateUI/%.1/%/%.10/%.11">
+      <details key="start" value="1374"/>
+      <details key="end" value="1380"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateUI/%.1/%/%.10/%.11/d">
+      <details key="start" value="1374"/>
+      <details key="end" value="1375"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateUI/%.1/%/%.10/%.12">
+      <details key="start" value="1382"/>
+      <details key="end" value="1383"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateUI/%.1/%/%.10/%.13">
+      <details key="start" value="1384"/>
+      <details key="end" value="1390"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateUI/%.1/%/%.10/%.13/d">
+      <details key="start" value="1384"/>
+      <details key="end" value="1385"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateUI/%.1/%/%.10/%.14">
+      <details key="start" value="1392"/>
+      <details key="end" value="1394"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateUI/%.1/%/%.10/d">
+      <details key="start" value="1239"/>
+      <details key="end" value="1247"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateUI/%.1/%/%.10/%.15">
+      <details key="start" value="1250"/>
+      <details key="end" value="1254"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateUI/%.1/%/%.10/%.15/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateUI/%.1/%/%.11">
+      <details key="start" value="1402"/>
+      <details key="end" value="2392"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateUI/%.1/%/%.11/%">
+      <details key="start" value="1429"/>
+      <details key="end" value="2384"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateUI/%.1/%/%.11/%/%">
+      <details key="start" value="1491"/>
+      <details key="end" value="2377"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateUI/%.1/%/%.11/%/%/%">
+      <details key="start" value="1512"/>
+      <details key="end" value="1534"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateUI/%.1/%/%.11/%/%/%.1">
+      <details key="start" value="1535"/>
+      <details key="end" value="1557"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateUI/%.1/%/%.11/%/%/%.1/anUI_Events">
+      <details key="start" value="1535"/>
+      <details key="end" value="1546"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateUI/%.1/%/%.11/%/%/%.2">
+      <details key="start" value="1559"/>
+      <details key="end" value="1560"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateUI/%.1/%/%.11/%/%/%.3">
+      <details key="start" value="1561"/>
+      <details key="end" value="1575"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateUI/%.1/%/%.11/%/%/%.3/a">
+      <details key="start" value="1561"/>
+      <details key="end" value="1562"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateUI/%.1/%/%.11/%/%/%.4">
+      <details key="start" value="1577"/>
+      <details key="end" value="1647"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/generateUI/%.1/%/%.11/%/%/%.5">
+      <details key="start" value="1648"/>
+      <details key="end" value="1657"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/generateUI/%.1/%/%.11/%/%/%.5/M">
+      <details key="start" value="1648"/>
+      <details key="end" value="1649"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/generateUI/%.1/%/%.11/%/%/%.6">
+      <details key="start" value="1659"/>
+      <details key="end" value="1683"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/generateUI/%.1/%/%.11/%/%/%.7">
+      <details key="start" value="1684"/>
+      <details key="end" value="1706"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/generateUI/%.1/%/%.11/%/%/%.7/anUI_Events">
+      <details key="start" value="1684"/>
+      <details key="end" value="1695"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/generateUI/%.1/%/%.11/%/%/%.8">
+      <details key="start" value="1708"/>
+      <details key="end" value="1709"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/generateUI/%.1/%/%.11/%/%/%.9">
+      <details key="start" value="1710"/>
+      <details key="end" value="1724"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/generateUI/%.1/%/%.11/%/%/%.9/a">
+      <details key="start" value="1710"/>
+      <details key="end" value="1711"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/generateUI/%.1/%/%.11/%/%/%.10">
+      <details key="start" value="1726"/>
+      <details key="end" value="1840"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/generateUI/%.1/%/%.11/%/%/%.11">
+      <details key="start" value="1841"/>
+      <details key="end" value="1850"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/generateUI/%.1/%/%.11/%/%/%.11/M">
+      <details key="start" value="1841"/>
+      <details key="end" value="1842"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/generateUI/%.1/%/%.11/%/%/%.12">
+      <details key="start" value="1852"/>
+      <details key="end" value="1876"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/generateUI/%.1/%/%.11/%/%/%.13">
+      <details key="start" value="1877"/>
+      <details key="end" value="1899"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/generateUI/%.1/%/%.11/%/%/%.13/anUI_Events">
+      <details key="start" value="1877"/>
+      <details key="end" value="1888"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/generateUI/%.1/%/%.11/%/%/%.14">
+      <details key="start" value="1901"/>
+      <details key="end" value="1902"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/generateUI/%.1/%/%.11/%/%/%.15">
+      <details key="start" value="1903"/>
+      <details key="end" value="1917"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/generateUI/%.1/%/%.11/%/%/%.15/a">
+      <details key="start" value="1903"/>
+      <details key="end" value="1904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/generateUI/%.1/%/%.11/%/%/%.16">
+      <details key="start" value="1919"/>
+      <details key="end" value="2077"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/generateUI/%.1/%/%.11/%/%/%.17">
+      <details key="start" value="2078"/>
+      <details key="end" value="2087"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/generateUI/%.1/%/%.11/%/%/%.17/M">
+      <details key="start" value="2078"/>
+      <details key="end" value="2079"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/generateUI/%.1/%/%.11/%/%/%.18">
+      <details key="start" value="2089"/>
+      <details key="end" value="2113"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/generateUI/%.1/%/%.11/%/%/%.19">
+      <details key="start" value="2114"/>
+      <details key="end" value="2136"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/generateUI/%.1/%/%.11/%/%/%.19/anUI_Events">
+      <details key="start" value="2114"/>
+      <details key="end" value="2125"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/generateUI/%.1/%/%.11/%/%/%.20">
+      <details key="start" value="2138"/>
+      <details key="end" value="2139"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/generateUI/%.1/%/%.11/%/%/%.21">
+      <details key="start" value="2140"/>
+      <details key="end" value="2154"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/generateUI/%.1/%/%.11/%/%/%.21/a">
+      <details key="start" value="2140"/>
+      <details key="end" value="2141"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.171" references="/0/generateUI/%.1/%/%.11/%/%/%.22">
+      <details key="start" value="2156"/>
+      <details key="end" value="2358"/>
+      <details key="line" value="60"/>
+    </eAnnotations>
+    <eAnnotations source="positions.172" references="/0/generateUI/%.1/%/%.11/%/%/%.23">
+      <details key="start" value="2359"/>
+      <details key="end" value="2368"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.173" references="/0/generateUI/%.1/%/%.11/%/%/%.23/M">
+      <details key="start" value="2359"/>
+      <details key="end" value="2360"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/generateUI/%.1/%/%.11/%/%/%.24">
+      <details key="start" value="2370"/>
+      <details key="end" value="2372"/>
+      <details key="line" value="64"/>
+    </eAnnotations>
+    <eAnnotations source="positions.175" references="/0/generateUI/%.1/%/%.11/%/%/%.25">
+      <details key="start" value="1495"/>
+      <details key="end" value="1510"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.176" references="/0/generateUI/%.1/%/%.11/%/%/%.25/%">
+      <details key="start" value="1496"/>
+      <details key="end" value="1502"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.177" references="/0/generateUI/%.1/%/%.11/%/%/%.25/%/M">
+      <details key="start" value="1496"/>
+      <details key="end" value="1497"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.178" references="/0/generateUI/%.1/%/%.11/%/%/%.25/%.1">
+      <details key="start" value="1503"/>
+      <details key="end" value="1509"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/generateUI/%.1/%/%.11/%/%.1">
+      <details key="start" value="1433"/>
+      <details key="end" value="1488"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.180" references="/0/generateUI/%.1/%/%.11/%/%.1/%">
+      <details key="start" value="1434"/>
+      <details key="end" value="1448"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.181" references="/0/generateUI/%.1/%/%.11/%/%.1/%/a">
+      <details key="start" value="1434"/>
+      <details key="end" value="1435"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.182" references="/0/generateUI/%.1/%/%.11/%/%.1/%.1">
+      <details key="start" value="1458"/>
+      <details key="end" value="1486"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.183" references="/0/generateUI/%.1/%/%.11/%/%.1/%.1/%">
+      <details key="start" value="1458"/>
+      <details key="end" value="1477"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.184" references="/0/generateUI/%.1/%/%.11/%/%.1/%.1/%/M">
+      <details key="start" value="1458"/>
+      <details key="end" value="1459"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.185" references="/0/generateUI/%.1/%/%.11/%/%.1/%.1/%.1">
+      <details key="start" value="1484"/>
+      <details key="end" value="1485"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.186" references="/0/generateUI/%.1/%/%.11/M">
+      <details key="start" value="1408"/>
+      <details key="end" value="1417"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.187" references="/0/generateUI/%.1/%/%.11/%.1">
+      <details key="start" value="1420"/>
+      <details key="end" value="1425"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.188" references="/0/generateUI/%.1/%/%.11/%.1/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.189" references="/0/generateUI/%.1/%/%.12">
+      <details key="start" value="2394"/>
+      <details key="end" value="2416"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.190" references="/0/generateUI/%.1/%/%.13">
+      <details key="start" value="2417"/>
+      <details key="end" value="2439"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/generateUI/%.1/%/%.13/anUI_Events">
+      <details key="start" value="2417"/>
+      <details key="end" value="2428"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/generateUI/%.1/%/%.14">
+      <details key="start" value="2441"/>
+      <details key="end" value="2442"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.193" references="/0/generateUI/%.1/%/%.15">
+      <details key="start" value="2443"/>
+      <details key="end" value="2457"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.194" references="/0/generateUI/%.1/%/%.15/a">
+      <details key="start" value="2443"/>
+      <details key="end" value="2444"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.195" references="/0/generateUI/%.1/%/%.16">
+      <details key="start" value="2459"/>
+      <details key="end" value="3041"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.196" references="/0/generateUI/%.1/%/a">
+      <details key="start" value="186"/>
+      <details key="end" value="204"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.197" references="/0/generateUI/%.1/%/%.17">
+      <details key="start" value="205"/>
+      <details key="end" value="218"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.198" references="/0/generateUI/%.1/%/%.17/self">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.199" references="/0/generateUI/%.1/%.1">
+      <details key="start" value="3049"/>
+      <details key="end" value="3300"/>
+      <details key="line" value="84"/>
+    </eAnnotations>
+    <eAnnotations source="positions.200" references="/0/generateUI/%.1/%.2">
+      <details key="start" value="152"/>
+      <details key="end" value="160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.201" references="/0/generateUI/%.1/%.3">
+      <details key="start" value="169"/>
+      <details key="end" value="176"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.202" references="/0/generateUI/anUI_Events">
+      <details key="start" value="117"/>
+      <details key="end" value="139"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>
