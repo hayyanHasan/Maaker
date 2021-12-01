@@ -1,0 +1,4 @@
+[< Application, Lcom/ibm/constantCalls1/MainActivity, isEmulator()Ljava/lang/Boolean; > <- , 10 = invokevirtual < Application, Landroid/telephony/TelephonyManager, getDeviceId()Ljava/lang/String; > 6 @10 exception:9
+, < Application, Lcom/ibm/constantCalls1/MainActivity, isEmulator()Ljava/lang/Boolean; > <- , 13 = invokevirtual < Application, Landroid/telephony/TelephonyManager, getSimSerialNumber()Ljava/lang/String; > 6 @14 exception:12
+, < Application, Lcom/ibm/constantCalls1/MainActivity, isEmulator()Ljava/lang/Boolean; > <- , 16 = invokevirtual < Application, Landroid/telephony/TelephonyManager, getSubscriberId()Ljava/lang/String; > 6 @18 exception:15
+]

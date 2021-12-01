@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>graph</title>
+    <link rel="stylesheet" href="vis.min.css"/>
+
+</head>
+<body>
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="vis.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+        $('option').filter(function() {
+                return this.value && this.value == location.hash;
+        }).prop('selected', true);
+});
+
+var jsonFiles = $.getJSON('dat/files.json').done(function(data){
+    var html = '';
+    var len = data.files.length;
+    
+    if (location.hash.replace('#','') == ""){
+    doGraph("dat/"+data.files[0]);
+    }else { doGraph("dat/"+location.hash.replace('#','')); }
+    for (var i = 0; i< len; i++) {
+        html += '<option value="#' + data.files[i] + '">' + data.files[i] + '</option>';
+    }
+    $('[name="resultFiles"]').append(html);
+});
+
+function doGraph (file) {
+var container = document.getElementById('graph');
+var typeColor = new Array();
+typeColor["return"] = "#FF6666";
+typeColor["branching"] = "#FF6666";
+typeColor["getfield"] = "#99CCFF";
+typeColor["invokevirtual"] = "#99CCFF";
+typeColor["invokestatic"] = "#99CCFF";
+
+            var options= {
+              nodes: {
+                shape: "box"
+              },
+              edges: {
+                arrows: "to"
+              },
+                layout: {
+                    hierarchical: {
+                        direction: "DU",
+                        enabled: true,
+			sortMethod: "directed"
+                    }
+            }};
+    var json = $.getJSON(file)
+        .done(function(data){
+            var g = {
+                nodes: data.nodes,
+                edges: data.edges
+            };
+g.nodes.forEach(function (nodes, index) {
+   nodes.color=typeColor[nodes.type]
+});
+            var network = new vis.Network(container, g, options);
+        });
+};
+
+window.onhashchange = function() {
+   doGraph("dat/"+location.hash.replace('#','')); 
+}
+
+</script>
+
+<div class="styled-select">
+<select id="test" class="drop" onchange="location = this.options[this.selectedIndex].value;" size="1" name="resultFiles">
+</select>
+</div>
+
+<div id="graph" style="width:100%; height:90vh;"></div>
+
+
+</body>
+</html>
